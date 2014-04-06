@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+
+	<link rel="stylesheet" href="vendor/fixed-nav-master/css/stysles.css">
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<!--[if lte IE 9]>
+	<script src="js/respond.js"></script>
+	<!-- <![endif]-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script src="http://hashgrid.com/hashgrid.js"></script>
+	<title>nFWK</title>
+</head>
+<body class="gridle-debug demo" id="top">
+
+	<section class="block clearfix" id="nav-bar">
+		<header class="nav-bar fixed">
+			<a href="#top" class="logo" data-scroll>nFwk</a>
+			<nav class="nav-collapse">
+				<ul>
+					<li><a href="#nav-bar" data-scroll>Menu &amp; Navbar</a></li>
+					<li class="active"><a href="#typography" data-scroll>Typography</a></li>
+					<li><a href="#buttons" data-scroll>Buttons</a></li>
+					<li><a href="#forms" data-scroll>Forms</a></li>
+					<li><a href="#content" data-scroll>Content</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="container">
+			<h1 class="lead">Collapsible Menu &amp; Navbar</h1>
+			<div class="row">
+				<div class="label">Menu only (.nav-collapse)</div>
+				<nav class="nav-collapse">
+					<ul>
+						<li class="active"><a href="#fakelink" data-scroll>Item 1</a></li>
+						<li><a href="#fakelink" data-scroll>Item 2</a></li>
+						<li><a href="#fakelink" data-scroll>Item 3</a></li>
+						<li><a href="#fakelink" data-scroll>Item 4</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="row">
+				<div class="label">Nav Bar (.nav-bar)</div>
+				<header class="nav-bar">
+					<a href="#" class="logo" data-scroll>Logo</a>
+					<nav class="nav-collapse">
+						<ul>
+							<li class="active"><a href="#fakelink" data-scroll>Item 1</a></li>
+							<li><a href="#fakelink" data-scroll>Item 2</a></li>
+							<li><a href="#fakelink" data-scroll>Item 3</a></li>
+							<li><a href="#fakelink" data-scroll>Item 4</a></li>
+						</ul>
+					</nav>
+				</header>
+			</div>
+		</div>
+	</section>
+	<section class="block clearfix" id="typography">
+		<div class="container">
+			<h1 class="lead">Typography</h1>
+			<div class="row">
+				<h1><span class="label">Heading 1</span>Lorem ipsum</h1>
+			</div>
+			<div class="row">
+				<h2><span class="label">Heading 2</span>Lorem ipsum</h2>
+			</div>
+			<div class="row">
+				<h3><span class="label">Heading 3</span>Lorem ipsum</h3>
+			</div>
+			<div class="row">
+				<h4><span class="label">Heading 4</span>Lorem ipsum</h4>
+			</div>
+			<div class="row">
+				<h5><span class="label">Heading 5</span>Lorem ipsum</h5>
+			</div>
+			<div class="row">
+				<h6><span class="label">Heading 6</span>Lorem ipsum</h6>
+			</div>
+
+			<div class="row">
+				<div class="label top-0">Paragraph</div>
+				<p><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>, malesuada enim eget, tempus est. Praesent eu nisl ac orci pulvinar porta at quis augue. <em>Etiam vehicula quam in imperdiet dapibus</em>. Nulla iaculis aliquam mauris congue feugiat. Vestibulum nisl tellus, tempor ut elit sed, bibendum dignissim orci. Sed eget est quis orci eleifend pretium nec in est. Ut pharetra hendrerit est.</p>
+			</div>
+			<div class="row">
+				<div class="label top-0">Paragraph.lead</div>
+				<p class="lead">Nulla cursus lacus enim, nec imperdiet enim laoreet sit amet</p>
+			</div>
+			<div class="row">
+				<div class="label top-0">blockquote + cite</div>
+				<blockquote>
+					<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus.</p>
+					<cite>Steve Jobs, CEO Apple</cite>
+				</blockquote>
+			</div>
+			<div class="row">
+				<div class="label top-0">.txt-primary</div>
+				<p class="txt-primary"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row">
+				<div class="label top-0">.txt-secondary</div>
+				<p class="txt-secondary"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row">
+				<div class="label top-0">.txt-mental</div>
+				<p class="txt-mental"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row">
+				<div class="label top-0">.txt-info</div>
+				<p class="txt-info"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row">
+				<div class="label top-0">.txt-success</div>
+				<p class="txt-success"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row">
+				<div class="label top-0">.txt-warning</div>
+				<p class="txt-warning"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row">
+				<div class="label top-0">.txt-error</div>
+				<p class="txt-error"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row bg-demo">
+				<div class="label top-0">.bg-primary</div>
+				<p class="bg-primary"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row bg-demo">
+				<div class="label top-0">.bg-secondary + .border + .rounded</div>
+				<p class="bg-secondary border rounded"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row bg-demo">
+				<div class="label top-0">.bg-mental</div>
+				<p class="bg-mental"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row bg-demo">
+				<div class="label top-0">.bg-info + .border</div>
+				<p class="bg-info border"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row bg-demo">
+				<div class="label top-0">.bg-success</div>
+				<p class="bg-success"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row bg-demo">
+				<div class="label top-0">.bg-warning</div>
+				<p class="bg-warning"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+			<div class="row bg-demo">
+				<div class="label top-0">.bg-error + .txt-error + .border + .rounded</div>
+				<p class="bg-error txt-error border rounded"><strong>Lorem ipsum dolor sit <em>amet</em></strong>, consectetur adipiscing elit. Nunc sed nulla <a href="#fakelink">consectetur</a>.</p>
+			</div>
+		</div>
+	</section>
+	<section class="block clearfix" id="buttons">
+		<div class="container">
+			<h1 class="lead">Buttons</h1>
+			<div class="colors">
+				<div class="td"><a href="#fakelink" class="btn btn-block btn-default">Default Block Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-block btn-inverse">Inverse Block Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-block btn-primary">Primary Block Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-block btn-secondary">Secondary Block Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-block btn-info">Info Block Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-block btn-success">Success Block Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-block btn-warning">Warning Block Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-block btn-error">Error Block Button</a></div>
+			</div>
+			<div class="sizes">
+				<div class="td"><a href="#fakelink" class="btn btn-blfock btn-hg btn-default">Huge Default Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-blofck btn-lg btn-default">Large Default Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-blofck btn-default">Default Default Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-blofck btn-sm btn-default">Small Default Button</a></div>
+				<div class="td"><a href="#fakelink" class="btn btn-blofck btn-xs btn-default">XSmall Default Button</a></div>
+			</div>
+		</div>
+	</section>
+	<section class="block clearfix" id="forms">
+		<div class="container">
+			<h1 class="lead">Forms</h1>
+			<div class="row">
+				<div class="label top-0">Input[type="text"]</div>
+				<div class="inline-form-container"><input type="text" class="form-item" placeholder="Default"></div>
+				<div class="inline-form-container"><input type="text" class="form-item has-error" value="Error"></div>
+				<div class="inline-form-container"><input type="text" class="form-item has-success" value="Success"></div>
+				<div class="inline-form-container"><input type="text" class="form-item" disabled value="Disabled"></div>
+			</div>
+			<div class="row">
+				<div class="label top-0">Input[type="checkbox"]</div>
+				<div class="inline-form-container"><input type="checkbox" id="male"><label for="male">Checkbox Unchecked</label><br> <input type="checkbox" id="male2" checked="checked"><label for="male2">Checkbox Checked</label><br><input type="checkbox" id="male3" disabled="disabled"><label for="male3">Checkbox Disabled</label></div>
+			</div>
+			<div class="row">
+				<div class="label top-0">Input[type="radio"]</div>
+				<div class="full-form-container"><input type="radio" name="option" id="female"><label for="female">Radio Unchecked</label>
+					<input type="radio" name="option" id="female2" checked="checked"><label for="female2">Radio Checked</label>
+					<input type="radio" name="option" id="female3" disabled="disabled"><label for="female3">Radio Disabled</label></div>
+				</div>
+			</div>
+			<div class="row">
+				<label class="custom-select">
+				    Select your favorite food:
+				    <select>
+				        <option>Sushi</option>
+				        <option>Blue cheese with crackers</option>
+				        <option>Steak</option>
+				        <option>Other</option>
+				    </select>
+				</label>
+				<select>
+					<option>Argh</option>
+				</select>
+			</div>
+		</section>
+
+		<section class="block clearfix" id="content">
+			<div class="container">
+				<h1 class="lead">Content</h1>
+				<div class="form-demo-1">
+					<div class="content-tiles">
+						<div class="tile">
+							<div class="tile-img"><img src="icons/smallicons/svg/briefcase.svg"></div>
+							<h3 class="tile-title">Lorem ipsum dolor</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<a class="btn btn-primary btn-large btn-block" href="#fakelink">Just Do It!</a>
+						</div>
+					</div>
+					<div class="content-tiles">
+						<div class="tile">
+							<div class="tile-img"><img src="icons/smallicons/svg/knife.svg"></div>
+							<h3 class="tile-title">Lorem ipsum dolor</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<a class="btn btn-primary btn-large btn-block" href="#fakelink">Just Do It!</a>
+						</div>
+					</div>
+					<div class="content-tiles">
+						<div class="tile">
+							<div class="tile-img"><img src="icons/smallicons/svg/chalkboard.svg"></div>
+							<h3 class="tile-title">Lorem ipsum dolor</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<a class="btn btn-primary btn-large btn-block" href="#fakelink">Just Do It!</a>
+						</div>
+					</div>
+					<div class="content-tiles">
+						<div class="tile bg-primary">
+							<div class="tile-img"><img src="icons/smallicons/svg/rocket.svg"></div>
+							<h3 class="tile-title">Lorem ipsum dolor</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<a class="btn btn-secondary btn-large btn-block" href="#fakelink">Just Do It!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="vendor/fixed-nav-master/js/responsive-nav.js"></script>
+		<script src="vendor/fixed-nav-master/js/fastclick.js"></script>
+		<script src="vendor/fixed-nav-master/js/scroll.js"></script>
+		<script src="vendor/fixed-nav-master/js/fixed-responsive-nav.js"></script>
+	</body>
+	</html>

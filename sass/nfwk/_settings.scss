@@ -1,0 +1,200 @@
+// Gridle
+// -------------------------
+// Import gridle :
+@import 'gridle/gridle';
+@import 'mixins/mixins';
+
+// Configure :
+$gridle-columns-count : 12;
+$gridle-gutter-width : 30px;
+$gridle-row-width : 1170px;
+$gridle-debug : false;
+$gridle-html-states-classes : false; // not really for production, used for demo here...
+
+@include gridle_register_default_states();
+@include gridle_register_state("desktop",1025px,null);
+@include gridle_register_state('ipad-landscape', 'only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)');
+
+@import '../fonts/icomoon/style';
+
+// Colors
+// -------------------------
+$white : #fff;
+$black : #000;
+$primary : #1ABC9C;
+$secondary : #E67E22;
+$error : #E74C3C;
+$warning : #F1C40F;
+$info : #3498DB;
+$success : #2ECC71;
+$gray1 : #ECF0F1;
+$gray2 : #95A5A6;
+$gray3 : #34495E;
+$mental : #9B59B6;
+
+$body-bg : $white;
+$body-fg : $gray3;
+$text-color : $gray3;
+$link-color : $primary;
+$link-hover-color : darken($primary, 5%);
+$title-fg : $secondary;
+
+@font-face {
+    font-family: 'logo';
+    src: url('../fonts/fucking-tag/fucking_tag_font-webfont.eot');
+    src: url('../fonts/fucking-tag/fucking_tag_font-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/fucking-tag/fucking_tag_font-webfont.woff') format('woff'),
+         url('../fonts/fucking-tag/fucking_tag_font-webfont.ttf') format('truetype'),
+         url('../fonts/fucking-tag/fucking_tag_font-webfont.svg#fucking_tag_fontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic|Roboto:400,700,300,100,900);
+
+$font-family-base:          "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif; //"Arimo", 
+$font-family-demo:          "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-monospace:     Monaco, Menlo, Consolas, "Courier New", monospace;
+$font-size-base:            16px;
+$context : 16 !default;
+
+// $font-size-h1:              floor($font-size-base * 3.444); // ~62px
+// $font-size-h2:              ceil($font-size-base * 2.889); // ~52px
+// $font-size-h3:              ceil($font-size-base * 2.222); // ~40px
+// $font-size-h4:              ceil($font-size-base * 1.611); // ~29px
+// $font-size-h5:              floor($font-size-base * 1.556); // ~28px
+// $font-size-h6:              ceil($font-size-base * 1.333); // ~24px
+
+$font-size-h1:              62; // ~62px
+$font-size-h2:              52; // ~52px
+$font-size-h3:              40; // ~40px
+$font-size-h4:              29; // ~29px
+$font-size-h5:              24; // ~28px
+$font-size-h6:              20; // ~24px
+
+$line-height-base:          1.5; //1.72222; // 31/18
+$baseline : floor($context * $line-height-base) !default;
+$line-height-computed:      floor($font-size-base * $line-height-base); // ~31px
+
+$headings-font-family:      'Roboto', "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+$headings-font-weight:      900;
+$headings-line-height:      1.1;
+$headings-color:            inherit;
+$headings-small-color:      lighten($secondary, 20%);
+
+
+//** Text muted color
+$text-muted:                  $gray1;
+//** Abbreviations and acronyms border color
+$abbr-border-color:           $gray1;
+//** Headings small color
+$headings-small-color:        mix($gray3, $white, 25%);
+//** Blockquote small color
+$blockquote-small-color:      inherit;
+//** Blockquote border color
+$blockquote-border-color:     mix($gray3, $white, 25%);
+//** Page header border color
+$page-header-border-color:    mix($gray3, $white, 25%);
+
+
+// Miscellaneous
+//
+//##
+
+//** Hr border color
+$hr-border:                   mix($gray3, $white, 63%);
+
+
+// $blockquote-border-color
+// $blockquote-small-color
+$state-primary-border: darken(adjust-hue($primary, -10), 5%);
+
+$state-secondary-text:          $secondary;
+$state-secondary-bg:            mix($secondary, white, 15%); //#dff0d8;
+$state-secondary-border:        darken(adjust-hue($state-secondary-bg, -10), 5%);
+
+$state-mental-text:          $mental;
+$state-mental-bg:            mix($mental, white, 15%); //#dff0d8;
+$state-mental-border:        darken(adjust-hue($state-mental-bg, -10), 5%);
+
+$state-success-text:          $success;
+$state-success-bg:            mix($success, white, 15%); //#dff0d8;
+$state-success-border:        darken(adjust-hue($state-success-bg, -10), 5%);
+
+$state-info-text:             $info;
+$state-info-bg:               mix($info, white, 15%); //#d9edf7;
+$state-info-border:           darken(adjust-hue($state-info-bg, -10), 7%);
+
+$state-warning-text:          $warning;
+$state-warning-bg:            mix($warning, white, 15%); //#fcf8e3;
+$state-warning-border:        darken(adjust-hue($state-warning-bg, -10), 5%);
+
+$state-danger-text:           $error;
+$state-danger-bg:             mix($error, white, 15%); //#f2dede;
+$state-danger-border:         darken(adjust-hue($state-danger-bg, -10), 5%);
+
+//== Components
+//
+//## Define common padding and border radius sizes and more.
+
+//** Default font-size in components
+$component-font-size-base:  ceil($font-size-base * 0.833); // ~15px
+
+// Border-radius
+$border-radius-base:        4px;
+$border-radius-large:       6px;
+$border-radius-small:       3px;
+
+//== Buttons
+//
+//## For each of Flat UI's buttons, define text, background, font size and height.
+
+$btn-font-size-base:         $component-font-size-base;
+$btn-font-size-xs:           ceil($component-font-size-base * 0.80);   // ~12px
+$btn-font-size-sm:           floor($component-font-size-base * 0.867); // ~13px
+$btn-font-size-lg:           ceil($component-font-size-base * 1.133);  // ~17px
+$btn-font-size-hg:           floor($component-font-size-base * 1.467); // ~22px
+
+$btn-line-height-base:       1.4;   // ~21px
+$btn-line-height-hg:         1.227; // ~27px
+$btn-line-height-lg:         1.471; // ~25px
+$btn-line-height-sm:         1.385; // ~16px
+$btn-line-height-xs:         1.083; // ~13px
+
+$btn-social-font-size-base:   floor($component-font-size-base * 0.867); // ~13px
+$btn-social-line-height-base: 1.077;  // ~14px
+
+$btn-font-weight:            normal;
+
+$btn-default-color:          $white;
+$btn-default-bg:             mix($gray1, black, 85%);;
+$btn-hover-bg:               mix($gray1, black, 80%);
+$btn-active-bg:              mix($gray1, black, 75%);
+
+$btn-primary-hover-bg:       mix($primary, white, 80%);
+$btn-primary-active-bg:      mix($primary, black, 85%);
+
+$btn-secondary-hover-bg:       mix($secondary, white, 80%);
+$btn-secondary-active-bg:      mix($secondary, black, 85%);
+
+$btn-info-hover-bg:          mix($info, white, 80%);
+$btn-info-active-bg:         mix($info, black, 85%);
+
+$btn-success-hover-bg:       mix($success, white, 80%);
+$btn-success-active-bg:      mix($success, black, 85%);
+
+$btn-danger-hover-bg:        mix($error, white, 80%);
+$btn-danger-active-bg:       mix($error, black, 85%);
+
+$btn-warning-hover-bg:       overlay($warning, darken(white, 37.5%));
+$btn-warning-active-bg:      mix($warning, black, 85%);
+
+$btn-inverse-hover-bg:       overlay($gray3, darken(white, 37.5%));
+$btn-inverse-active-bg:      mix($gray3, black, 85%);
+
+$btn-link-disabled-color:    $gray1;
+
+// Nav bar
+//
+//##
+$nav-bar-height:  55px;

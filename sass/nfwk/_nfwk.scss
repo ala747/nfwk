@@ -1,0 +1,51 @@
+// Imports
+// -------------------------
+@import 'compass/reset';
+//@import 'compass/css3/box';
+@import 'compass/utilities/general/clearfix';
+
+// Import Settings
+// -------------------------
+@import 'settings';
+
+// Grid debug
+@import 'debug/grid_debug';
+
+// Basic Formatting
+// -------------------------
+*, *:before, *:after {
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  @include baseline-font-size(18);
+  color: $text-color;
+  background-color: $body-bg;
+}
+
+// Links
+// -------------------------
+a {
+  color: $link-color;
+  text-decoration: none;
+  @include transition(.25s);
+    
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+@import 'partials/utils';
+@import 'partials/typography';
+@import 'partials/buttons';
+@import 'partials/navbar';
+@import 'partials/forms';
+@import 'partials/content';

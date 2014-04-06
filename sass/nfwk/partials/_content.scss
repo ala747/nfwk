@@ -1,0 +1,18 @@
+.tile {
+	background-color: $gray1;
+	border-radius: $border-radius-large;
+	padding: 14px;
+	position: relative;
+	text-align: center;
+	.tile-title {
+		@include baseline-font-size($font-size-h5); @include baseline-margin($baseline, .5, .5);
+	}
+	.tile-img {
+		width: 100%;
+		margin: 0 auto;
+		img {
+			width: auto;
+			height: 150px;
+		}
+	}
+}

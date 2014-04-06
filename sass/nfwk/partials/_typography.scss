@@ -1,0 +1,241 @@
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+  
+  small {
+    color: $headings-small-color;
+  }
+}
+
+h1,
+h2,
+h3 {
+  // margin-top: $line-height-computed;
+  // margin-bottom: ($line-height-computed / 2);
+  letter-spacing: -1px;
+}
+h4,
+h5,
+h6 {
+  // margin-top: ($line-height-computed / 2);
+  // margin-bottom: ($line-height-computed / 2);
+}
+
+// h6 {
+//   font-weight: normal;
+// }
+
+h1, .h1 { @include baseline-font-size($font-size-h1); @include baseline-margin($baseline, 0, 1); } // ~62px
+h2, .h2 { @include baseline-font-size($font-size-h2); @include baseline-margin($baseline, 0, 1); } // ~52px
+h3, .h3 { @include baseline-font-size($font-size-h3); @include baseline-margin($baseline, 0, 1); } // ~40px
+h4, .h4 { @include baseline-font-size($font-size-h4); @include baseline-margin($baseline, 0, 1); } // ~29px
+h5, .h5 { @include baseline-font-size($font-size-h5); @include baseline-margin($baseline, 0, 1); } // ~28px 
+h6, .h6 { @include baseline-font-size($font-size-h6); @include baseline-margin($baseline, 0, 1); } // ~24px
+
+// Body text
+// -------------------------
+
+p {
+  @include baseline-font-size(16, $context); 
+  @include baseline-margin($baseline, 0, 1);
+  // font-size:   $font-size-base;
+  // line-height: $line-height-base;
+  // margin: 0 0 ($line-height-computed / 2);
+}
+
+.lead {
+  font-family: $headings-font-family;
+  margin-bottom: $line-height-computed;
+  font-size:   floor($font-size-base * 2.5);  // ~28px
+  line-height: 1.46428571;                      // ~41px
+  @include baseline-font-size(16 * 2.5); 
+  @include baseline-margin($baseline, 0, 1);
+  font-weight: 300;
+}
+
+// Emphasis & misc
+// -------------------------
+strong, b {
+  font-weight: 700;
+  font-size: 110%;
+  line-height: 1;
+}
+em, i {
+  font-style: italic;
+}
+
+// Ex: 18px base font * 83% = about 15px
+small,
+.small {
+  font-size: 83%;     // ~15px
+  //line-height: 2.067; // ~31px
+}
+
+// Contextual emphasis
+.txt-muted {
+  color: $text-muted;
+}
+.txt-inverse {
+  color: $white;
+}
+.txt-primary {
+  @include text-emphasis-variant($primary);
+  border-color: $state-primary-border;
+}
+.txt-secondary {
+  @include text-emphasis-variant($secondary);
+  border-color: $state-secondary-border;
+}
+.txt-mental {
+  @include text-emphasis-variant($mental);
+  border-color: $state-mental-border;
+}
+.txt-warning {
+  @include text-emphasis-variant($state-warning-text);
+  border-color: $state-warning-border;
+}
+.txt-error {
+  @include text-emphasis-variant($state-danger-text);
+  border-color: $state-danger-border;
+}
+.txt-success {
+  @include text-emphasis-variant($state-success-text);
+  border-color: $state-success-border;
+}
+.txt-info {
+  @include text-emphasis-variant($state-info-text);
+  border-color: $state-info-border;
+}
+
+// Contextual backgrounds
+.bg-primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  color: $white;
+  @include bg-variant($gray3);
+  border-color: darken(adjust-hue($gray3, -10), 5%);;
+}
+.bg-secondary {
+  @include bg-variant($state-secondary-bg);
+  border-color: $state-secondary-border;
+}
+.bg-mental {
+  @include bg-variant($state-mental-bg);
+  border-color: $state-mental-border;
+}
+.bg-success {
+  @include bg-variant($state-success-bg);
+  border-color: $state-success-border;
+}
+.bg-info {
+  @include bg-variant($state-info-bg);
+  border-color: $state-info-border;
+}
+.bg-warning {
+  @include bg-variant($state-warning-bg);
+  border-color: $state-warning-border;
+}
+.bg-error {
+  @include bg-variant($state-danger-bg);
+  border-color: $state-danger-border;
+}
+
+
+// Lists
+// --------------------------------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+  margin-bottom: ($line-height-computed / 2);
+  @include baseline-margin($baseline, 0, 1);
+}
+
+// Description Lists
+dl {
+  margin-bottom: $line-height-computed;
+}
+dt,
+dd {
+  line-height: $line-height-base;
+}
+
+// Abbreviations and acronyms
+abbr[title],
+abbr[data-original-title] {
+  border-bottom: 1px dotted $abbr-border-color;
+}
+
+// Blockquotes
+blockquote {
+  //border-left: 3px solid $blockquote-border-color;
+  padding: 0 0 0 40px;
+  margin: 0 0 $line-height-computed;
+  @include baseline-margin($baseline, 0, .5);
+  position: relative;
+  &:before {
+    display: block;
+    content: "\201C";
+    font-size: ($font-size-base * 10);
+    @include baseline-font-size(16 * 11);
+    line-height: 1;
+    position: absolute;
+    left: -20px;
+    top: -($font-size-base * $line-height-base);
+    color: $blockquote-border-color;
+  }
+  p {
+    font-family: $headings-font-family;
+    font-size: ceil($font-size-base * 1.5); // ~20px
+    line-height: 1.55;                        // ~31px
+    font-weight: normal;
+    margin-bottom: .4em;
+    @include baseline-font-size(16 * 1.4);
+    @include baseline-margin($baseline, 0, .5);
+  }
+  small,
+  cite,
+  .small {
+    // font-size: $font-size-base;
+    // line-height: $line-height-base;
+    @include baseline-font-size(16);
+    @include baseline-margin($baseline, 0, .5);
+    font-style: italic;
+    color: $blockquote-small-color;
+
+    &:before {
+      content: "\2014 \2009";
+    }
+  }
+  
+  // Float right with text-align: right
+  &.pull-right {
+    padding-right: 16px;
+    padding-left: 0;
+    border-right: 3px solid $blockquote-border-color;
+    border-left: 0;
+
+    small {
+      &:after {
+        content: "";
+      }
+    }
+  }
+}
+
+// Addresses
+address {
+  margin-bottom: $line-height-computed;
+  line-height: $line-height-base;
+}

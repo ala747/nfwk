@@ -1,0 +1,196 @@
+// Imports
+// -------------------------
+@import 'nfwk/nfwk';
+
+
+.iconmelon,
+.im {
+  position: relative;
+  width: 70%;
+  height:180px;
+  margin:0 auto;
+  display: block;
+  fill: #525151;
+}
+.iconmelon:after,
+.im:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+body {
+	padding-top: 61px
+}
+
+.fixed {
+	overflow: visible;
+	.logo {
+		font-family: 'logo';
+		font-size: 40px;
+		top: 24px;
+		position: relative;
+		color: desaturate($secondary, 90%);
+		text-shadow: -1px -1px 0 $white, 2px -1px 0 $white;
+		&:hover {
+			color: $secondary;
+		}
+	}
+}
+
+// Normal Grid container
+.container {
+	margin:0 auto;
+	max-width: $gridle-row-width;
+	//@include gridle_parent ( ); 
+}
+.row {
+	@include gridle(10);
+	float: none;
+	position: relative;
+	@include gridle_prefix ( 2 );
+	//padding-left: 20%;
+	//@include baseline-margin($baseline, 0, .5);
+	@include gridle_state('mobile' 'tablet') {
+		@include gridle_prefix(0);
+		@include gridle (12);
+		@include baseline-padding($baseline, 1, 0);
+	}
+}
+.label {
+	width: auto;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	//font-family: $font-family-base;
+	//@include baseline-font-size(12, $context);
+	font-size: 13px;
+	line-height: inherit;
+	@include baseline-margin($baseline, 0, 1);
+	font-weight: 400;
+	//line-height: 1;
+	letter-spacing: 0;
+	color: $gray2;
+	@include gridle ( 2, 10 );
+	@include gridle_prefix ( -2, 10 );
+	&.bottom-0 {
+		bottom: 0;
+	}
+	&.top-0 {
+		top: 0;
+		bottom: auto;
+	}
+	@include gridle_state('mobile' 'tablet') {
+		@include gridle(12);
+		@include gridle_prefix ( 0 );
+		top:0;
+		bottom: auto;
+	}
+}
+.form-demo-1 {
+	@include gridle_parent ( );
+	@include baseline-margin($baseline, 0, 1);
+}
+.inline-form-container {
+	@include gridle(6);
+	@include baseline-margin($baseline, 0, 1);
+	@include gridle_state('mobile' 'tablet') {
+		@include gridle(12);
+	}
+}
+.full-form-container {
+	@include gridle(12);
+	@include baseline-margin($baseline, 0, 1);
+}
+.content-tiles {
+	@include gridle(3);
+	@include baseline-margin($baseline, 0, 1);
+	img {
+		width: auto;
+		height: 150px;
+	}
+	@include gridle_state('mobile') {
+		@include gridle(12);
+		img {
+			width: 70%;
+			max-height: 170px;
+		}
+	}
+	@include gridle_state('tablet') {
+		@include gridle(6);
+		img {
+			width: 60%;
+			max-height: 150px;
+		}
+	}
+
+}
+.bg-demo p {
+	padding: 15px
+}
+.data {
+	@include gridle(9)
+}
+h1 {
+	&.lead {
+		border-bottom: 1px solid $primary
+	}
+}
+
+// .block {
+// 	@include clearfix();
+// }
+#buttons {
+	//display: table;
+	// h1 {
+	// 	margin-left: 15px
+	// }
+	.colors {
+		//display: table-row;
+		//clear: both;
+		@include gridle_parent ( );
+		@include gridle(8);
+		@include gridle(6, 'tablet');
+		@include gridle(6, 'mobile');
+		.td {
+			@include gridle(6);
+			@include gridle(12, 'tablet');
+			@include gridle(12, 'mobile');
+			//display: table-cell !important;
+			//float: none;
+		}
+	}
+	.sizes {
+		@include gridle(3);
+		@include gridle(6, 'tablet');
+		@include gridle(6, 'mobile');
+		@include gridle_prefix ( 1 );
+		@include gridle_prefix ( 0, 'tablet');
+		@include gridle_prefix ( 0, 'mobile');
+	}
+	.td {
+		margin-bottom: 15px;
+		@include baseline-margin($baseline, 0, 1);
+	}
+}
+#header {
+	@include gridle_parent ( ); 
+		li {
+		@include gridle ( 4 );
+		@include gridle ( 12 , 'mobile' );
+	}
+}
+.demo .container {
+	clear: both;
+}
+// .container li {
+// 	@include gridle ( 4 );
+// 	@include gridle_prefix ( 6, 'tablet');
+// 	@include gridle ( 6 , 'tablet' );
+// 	@include gridle ( 12 , 'mobile' );
+// }
+// #nav.container li {
+// 	@include gridle_prefix ( 0, 'tablet');
+// }

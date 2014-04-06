@@ -1,0 +1,111 @@
+@mixin baseline-font-size($target, $context: 16) {
+  font-size: #{($target / $context) * $context}px; /* #{$target}px / #{$context}px */
+  $lineHeight: ceil($target / $baseline) * $baseline;
+  // set in pixels due to em rounding issues breaking the rhythm */
+
+  line-height: #{$lineHeight}px; 
+}
+
+@mixin baseline-margin($context: 16, $topAmount: 1, $bottomAmount: 1) {
+  // set in pixels due to em rounding issues breaking the rhythm */
+  margin-top: #{$topAmount * $baseline}px;
+  margin-bottom: #{$bottomAmount * $baseline}px;
+
+}
+
+@mixin baseline-padding($context: 16, $topAmount: 1, $bottomAmount: 1 ) {
+  // set in pixels due to em rounding issues breaking the rhythm */
+  padding-top: #{$topAmount * $baseline}px;
+  padding-bottom: #{$bottomAmount * $baseline}px;
+}
+
+@mixin baseline-float($direction: left) {
+  float: $direction;
+  margin: 0 12px;
+  margin-#{$direction}: 0;
+}
+
+
+
+
+
+
+
+@mixin text-emphasis-variant($color) {
+	color: $color;
+	& a:hover {
+		color: mix($color, black, 80%);
+	}
+}
+
+@mixin bg-variant($color) {
+	background-color: $color !important;
+	& a:hover {
+		background-color: darken($color, 10%) !important;
+	}
+}
+
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+	transition: $transition;
+}
+
+// Drop shadows
+@mixin box-shadow($shadow) {
+	-webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+	box-shadow: $shadow;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+	opacity: $opacity;
+	// IE8 filter
+	$opacity-ie: ($opacity * 100);
+	filter: unquote("alpha(opacity=${opacity-ie})");
+}
+
+// Button variants
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+@mixin button-variant($color, $background, $hover-background, $active-background, $disabled-background: $gray1) {
+  color: $color;
+  background-color: $background;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle {
+    color: $color;
+    background-color: $hover-background;
+    border-color: $hover-background;
+  }
+  &:active,
+  &.active,
+  .open .dropdown-toggle {
+    background: $active-background;
+    border-color: $active-background;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+      border-color: $background;
+    }
+  }
+}
+
+// Button sizes
+// -------------------------
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+	padding: $padding-vertical $padding-horizontal;
+	font-size: $font-size;
+	line-height: $line-height;
+	border-radius: $border-radius;
+}
