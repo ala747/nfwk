@@ -71,6 +71,39 @@
 .rounded-l {
 	border-radius: $border-radius-large;
 }
+
+// carets
+.caret-right {
+  padding-right: 40px !important;
+  &:after {
+    content: ''
+  }
+}
+.caret, .caret-right:after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-width: 8px 6px;
+  border-bottom-color: inherit;
+  border-top-color: inherit;
+  border-style: solid;
+  border-bottom-style: none;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-transform: scale(1.001 );
+  -ms-transform: scale(1.001 );
+  transform: scale(1.001 );
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  margin-top: -3px;
+}
+
 // text colors
 // .txt-primary {
 // 	color: $primary;

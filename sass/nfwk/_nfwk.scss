@@ -21,9 +21,21 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
-  @include baseline-font-size(18);
+  @include baseline-font-size(16);
   color: $text-color;
   background-color: $body-bg;
+}
+
+// Screen Readers Only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 // Links

@@ -2,27 +2,26 @@
 <html>
 <head>
 
-	<meta charset="utf-8" />
-
-	<link rel="stylesheet" href="vendor/fixed-nav-master/css/stysles.css">
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
+<meta charset="utf-8" />
+<title>nFWK</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 
 <!--[if lte IE 9]>
-	<script src="js/respond.js"></script>
-	<!-- <![endif]-->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-	<script src="http://hashgrid.com/hashgrid.js"></script>
-	<title>nFWK</title>
+<script src="js/respond.js"></script>
+<!-- <![endif]-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="http://hashgrid.com/hashgrid.js"></script>
+
 </head>
 <body class="gridle-debug demo" id="top">
 
 	<section class="block clearfix" id="nav-bar">
 		<header class="nav-bar fixed">
-			<a href="#top" class="logo" data-scroll>nFwk</a>
+			<a href="#top" class="logo" data-scroll>nFWK</a>
 			<nav class="nav-collapse">
 				<ul>
-					<li><a href="#nav-bar" data-scroll>Menu &amp; Navbar</a></li>
-					<li class="active"><a href="#typography" data-scroll>Typography</a></li>
+					<li class="active"><a href="#nav-bar" data-scroll>Menu &amp; Navbar</a></li>
+					<li><a href="#typography" data-scroll>Typography</a></li>
 					<li><a href="#buttons" data-scroll>Buttons</a></li>
 					<li><a href="#forms" data-scroll>Forms</a></li>
 					<li><a href="#content" data-scroll>Content</a></li>
@@ -193,68 +192,79 @@
 				<div class="label top-0">Input[type="radio"]</div>
 				<div class="full-form-container"><input type="radio" name="option" id="female"><label for="female">Radio Unchecked</label>
 					<input type="radio" name="option" id="female2" checked="checked"><label for="female2">Radio Checked</label>
-					<input type="radio" name="option" id="female3" disabled="disabled"><label for="female3">Radio Disabled</label></div>
+					<input type="radio" name="option" id="female3" disabled="disabled"><label for="female3">Radio Disabled</label>
 				</div>
 			</div>
 			<div class="row">
-				<label class="custom-select">
-				    Select your favorite food:
-				    <select>
-				        <option>Sushi</option>
-				        <option>Blue cheese with crackers</option>
-				        <option>Steak</option>
-				        <option>Other</option>
-				    </select>
-				</label>
-				<select>
-					<option>Argh</option>
-				</select>
+				<div class="full-form-container">
+					<div class="label top-0">.custom-select > select</div>
+					<label class="custom-select">
+						<span class="sr-only">Label visible for screen readers only</span>
+						<select id="something" name="something">
+							<option>Option 1</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Option 4</option>
+						</select>
+					</label>
+					<label class="custom-select">
+						<span class="sr-only">Label visible for screen readers only</span>
+						<select id="something2" name="something2">
+							<option>Option 1</option>
+							<option>Option 2</option>
+							<option>Option 3</option>
+							<option>Loooooooong Option 4</option>
+						</select>
+					</label>
+				</div>
 			</div>
-		</section>
+		</div>	
+	</section>
 
-		<section class="block clearfix" id="content">
-			<div class="container">
-				<h1 class="lead">Content</h1>
-				<div class="form-demo-1">
-					<div class="content-tiles">
-						<div class="tile">
-							<div class="tile-img"><img src="icons/smallicons/svg/briefcase.svg"></div>
-							<h3 class="tile-title">Lorem ipsum dolor</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							<a class="btn btn-primary btn-large btn-block" href="#fakelink">Just Do It!</a>
-						</div>
+	<section class="block clearfix" id="content">
+		<div class="container">
+			<h1 class="lead">Content</h1>
+			<div class="form-demo-1">
+				<div class="content-tiles">
+					<div class="tile">
+						<div class="tile-img"><img src="icons/smallicons/svg/briefcase.svg"></div>
+						<h3 class="tile-title">Lorem ipsum dolor</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<a class="btn btn-primary btn-large btn-block" href="#fakelink">Just Do It!</a>
 					</div>
-					<div class="content-tiles">
-						<div class="tile">
-							<div class="tile-img"><img src="icons/smallicons/svg/knife.svg"></div>
-							<h3 class="tile-title">Lorem ipsum dolor</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							<a class="btn btn-primary btn-large btn-block" href="#fakelink">Just Do It!</a>
-						</div>
+				</div>
+				<div class="content-tiles">
+					<div class="tile">
+						<div class="tile-img"><img src="icons/smallicons/svg/knife.svg"></div>
+						<h3 class="tile-title">Lorem ipsum dolor</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<a class="btn btn-primary btn-large btn-block" href="#fakelink">Just Do It!</a>
 					</div>
-					<div class="content-tiles">
-						<div class="tile">
-							<div class="tile-img"><img src="icons/smallicons/svg/chalkboard.svg"></div>
-							<h3 class="tile-title">Lorem ipsum dolor</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							<a class="btn btn-primary btn-large btn-block" href="#fakelink">Just Do It!</a>
-						</div>
+				</div>
+				<div class="content-tiles">
+					<div class="tile">
+						<div class="tile-img"><img src="icons/smallicons/svg/chalkboard.svg"></div>
+						<h3 class="tile-title">Lorem ipsum dolor</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<a class="btn btn-primary btn-large btn-block" href="#fakelink">Just Do It!</a>
 					</div>
-					<div class="content-tiles">
-						<div class="tile bg-primary">
-							<div class="tile-img"><img src="icons/smallicons/svg/rocket.svg"></div>
-							<h3 class="tile-title">Lorem ipsum dolor</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							<a class="btn btn-secondary btn-large btn-block" href="#fakelink">Just Do It!</a>
-						</div>
+				</div>
+				<div class="content-tiles">
+					<div class="tile bg-primary">
+						<div class="tile-img"><img src="icons/smallicons/svg/rocket.svg"></div>
+						<h3 class="tile-title">Lorem ipsum dolor</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<a class="btn btn-secondary btn-large btn-block" href="#fakelink">Just Do It!</a>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<script src="vendor/fixed-nav-master/js/responsive-nav.js"></script>
-		<script src="vendor/fixed-nav-master/js/fastclick.js"></script>
-		<script src="vendor/fixed-nav-master/js/scroll.js"></script>
-		<script src="vendor/fixed-nav-master/js/fixed-responsive-nav.js"></script>
-	</body>
-	</html>
+	<script src="vendor/fixed-nav-master/js/responsive-nav.js"></script>
+	<script src="vendor/fixed-nav-master/js/fastclick.js"></script>
+	<script src="vendor/fixed-nav-master/js/scroll.js"></script>
+	<script src="vendor/fixed-nav-master/js/fixed-responsive-nav.js"></script>
+	<script src="js/custom-selects.js"></script>
+</body>
+</html>
