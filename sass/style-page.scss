@@ -1,0 +1,604 @@
+// Imports
+// -------------------------
+@import 'nfwk/nfwk';
+
+#kiwi {
+	max-width: 100px;
+	height: 50px;
+	//opacity: .8;
+	#bird {
+		fill: $white;
+	}
+	ellipse {
+		fill: #111;
+	}
+}
+
+.fixed {
+	overflow: visible;
+	.logo {
+		font-family: 'logo';
+		font-size: 40px;
+		top: 24px;
+		position: relative;
+		color: desaturate($secondary, 90%);
+		text-shadow: -1px -1px 0 $white, 2px -1px 0 $white;
+		text-align: left;
+		&:hover {
+			color: $secondary;
+		}
+	}
+}
+
+
+// Headers
+// -------------------------
+.header-1 {
+	position: relative;
+	//background: $gray3 url(../img/bg-header.jpg) no-repeat 50% 40%;
+	background-size: cover;
+	background-position: 50% 50%;
+	padding: 100px 0 600px;
+	max-height: 750px;
+	color: $white;
+	z-index: 0;
+	.logo {
+		svg {
+			vertical-align: middle;
+		}
+		@include gridle(3);
+		@include baseline-font-size($font-size-base * 2.1);
+		line-height: 1;
+		letter-spacing: -1px;
+		text-transform: uppercase;
+		color: $white;
+		font-weight: 900;
+		font-family: $headings-font-family;
+	}
+	.nav-collapse {
+		@include gridle(9);
+		width: auto;
+		float: right;
+		li {
+			margin-left: 10px;
+			@include gridle_state('mobile') {
+				margin-left: 0;
+			}
+			a {
+				border: 0;
+				border-radius: 6px;
+				color: $white;
+				text-shadow: 0 0 8px rgba($black, .5);
+				text-transform: uppercase;
+				height: auto;
+				@include baseline-font-size($font-size-base * .75);
+				&:hover {
+					background-color: rgba($black, .3);
+				}
+			}
+			&.active a, &.active a:hover {
+				background: rgba($black, 0.5);
+				color: $white;
+				text-shadow: 0 0 4px rgba($black, 1);
+			}
+		}
+	}
+	.nav-toggle:before {
+		color: $white;
+		text-shadow: 0 0 8px rgba($black, .5);
+		&:hover {
+			background-color: rgba($black, .3);
+		}
+	}
+	h1 {
+		position: relative;
+		// top: 30%;
+		text-align: center;
+		width: 100%;
+		text-shadow: 0 0 14px rgba($black, .5);
+		@include baseline-padding($baseline, 4, 4);
+	}
+	@include gridle_state('tablet' 'mobile') {
+		padding: 0 0 200px;
+		max-height: 450px;
+		#kiwi {
+			margin-top: 5px;
+			width: 50px;
+		}
+		h1 {
+			top: auto;
+			bottom: 0;
+			@include baseline-font-size($font-size-h1 * .6);
+		}
+	};
+}
+.header-2 {
+	position: relative;
+	background: $gray3;
+	@include baseline-padding($baseline, 4, 4);
+	color: $white;
+	.logo {
+		svg {
+			vertical-align: middle;
+		}
+		@include gridle(3);
+		@include baseline-font-size($font-size-base * 2.1);
+		line-height: 1;
+		letter-spacing: -1px;
+		text-transform: uppercase;
+		color: $white;
+		font-weight: 900;
+		font-family: $headings-font-family;
+		@include gridle_state('tablet') {
+			@include gridle(6);
+		}
+		@include gridle_state('mobile') {
+			line-height: .9;
+		}
+	}
+	.nav-collapse {
+		@include gridle(9);
+		width: auto;
+		float: right;
+		li {
+			margin-left: 10px;
+			@include gridle_state('mobile') {
+				margin-left: 0;
+			}
+			a {
+				border: 0;
+				border-radius: 6px;
+				color: $white;
+				text-shadow: 0 0 4px rgba($black, 1);
+				text-transform: uppercase;
+				@include baseline-font-size($font-size-base * .75);
+				height: auto;
+				@include gridle_state('mobile') {
+					text-shadow: 0 0 4px rgba($black, 1);
+					color: $white;
+				}
+				&:hover {
+					background-color: rgba($black, .3);
+					color: $white;
+					text-shadow: 0 0 4px rgba($black, 1);
+				}
+			}
+			&.active a, &.active a:hover {
+				background: rgba($black, 0.5);
+				color: $white;
+				text-shadow: 0 0 4px rgba($white, 1);
+				@include gridle_state('mobile') {
+					text-shadow: 0 0 4px rgba($black, 1);
+					color: $white;
+				}
+			}
+		}
+		@include gridle_state('mobile' 'tablet') {
+			@include gridle(12);
+		}
+	}
+	.nav-toggle:before {
+		color: $white;
+		text-shadow: none;
+		&:hover {
+			background-color: rgba($black, .3);
+			color: $white;
+		}
+	}
+	h1 {
+		text-align: center;
+		text-shadow: 0 0 14px rgba($black, .5);
+		@include baseline-margin($baseline, 4, 0);
+	}
+	@include gridle_state('tablet' 'mobile') {
+		@include baseline-padding($baseline, 2, 2);
+		#kiwi {
+			width: 50px;
+		}
+		h1 {
+			@include baseline-margin($baseline, 1, 0);
+			@include baseline-font-size($font-size-h1 * .6);
+		}
+	};
+}
+.header-3 {
+	position: relative;
+	background: $gray1;
+	@include baseline-padding($baseline, 4, 4);
+	color: $gray3;
+	#bird {
+		fill: $gray3 !important;
+	}
+	ellipse {
+		fill: #000 !important;
+	}
+	.logo {
+		svg {
+			vertical-align: middle;
+		}
+		@include gridle(3);
+		@include baseline-font-size($font-size-base * 2.1);
+		line-height: 1;
+		letter-spacing: -1px;
+		text-transform: uppercase;
+		color: $gray3;
+		font-weight: 900;
+		font-family: $headings-font-family;
+		@include gridle_state('tablet') {
+			@include gridle(6);
+		}
+	}
+	.nav-collapse {
+		@include gridle(9);
+		width: auto;
+		float: right;
+		li {
+			margin-left: 10px;
+			@include gridle_state('mobile') {
+				margin-left: 0;
+			}
+			a {
+				border: 0;
+				border-radius: 6px;
+				color: $primary;
+				text-shadow: 0 0 4px rgba($white, 1);
+				text-transform: uppercase;
+				@include baseline-font-size($font-size-base * .75);
+				height: auto;
+				@include gridle_state('mobile') {
+					text-shadow: 0 0 4px rgba($black, 1);
+					color: $white;
+				}
+				&:hover {
+					background-color: rgba($black, .3);
+					color: $white;
+					text-shadow: 0 0 4px rgba($black, 1);
+				}
+			}
+			&.active a, &.active a:hover {
+				background: rgba(0, 0, 0, 0.1);
+				color: $black;
+				text-shadow: 0 0 4px rgba($white, 1);
+				@include gridle_state('mobile') {
+					text-shadow: 0 0 4px rgba($black, 1);
+					color: $white;
+				}
+			}
+		}
+		@include gridle_state('mobile' 'tablet') {
+			@include gridle(12);
+		}
+	}
+	.nav-toggle:before {
+		color: $black;
+		text-shadow: none;
+		&:hover {
+			background-color: rgba($black, .3);
+			color: $white;
+		}
+	}
+	h1 {
+		text-align: center;
+		text-shadow: 0 0 14px rgba($white, .5);
+		@include baseline-margin($baseline, 4, 0);
+	}
+	@include gridle_state('tablet' 'mobile') {
+		@include baseline-padding($baseline, 2, 2);
+		#kiwi {
+			width: 50px;
+		}
+		h1 {
+			@include baseline-margin($baseline, 1, 0);
+			@include baseline-font-size($font-size-h1 * .6);
+		}
+	};
+}
+.header-4 {
+	position: relative;
+	background: $gray3;
+	@include baseline-padding($baseline, 4, 4);
+	color: $white;
+	.logo {
+		svg {
+			vertical-align: middle;
+		}
+		@include gridle(3);
+		@include baseline-font-size($font-size-base * 2.1);
+		line-height: 1;
+		letter-spacing: -1px;
+		text-transform: uppercase;
+		color: $white;
+		font-weight: 900;
+		font-family: $headings-font-family;
+		@include gridle_state('tablet') {
+			@include gridle(6);
+		}
+		@include gridle_state('mobile') {
+			line-height: .9;
+		}
+	}
+	.nav-collapse {
+		@include gridle(9);
+		width: auto;
+		float: right;
+		li {
+			margin-left: 10px;
+			@include gridle_state('mobile') {
+				margin-left: 0;
+			}
+			a {
+				border: 0;
+				border-radius: 6px;
+				color: $white;
+				text-shadow: 0 0 4px rgba($black, 1);
+				text-transform: uppercase;
+				@include baseline-font-size($font-size-base * .75);
+				height: auto;
+				@include gridle_state('mobile') {
+					text-shadow: 0 0 4px rgba($black, 1);
+					color: $white;
+				}
+				&:hover {
+					background-color: rgba($black, .3);
+					color: $white;
+					text-shadow: 0 0 4px rgba($black, 1);
+				}
+			}
+			&.active a, &.active a:hover {
+				background: rgba($black, 0.5);
+				color: $white;
+				text-shadow: 0 0 4px rgba($white, 1);
+				@include gridle_state('mobile') {
+					text-shadow: 0 0 4px rgba($black, 1);
+					color: $white;
+				}
+			}
+		}
+		@include gridle_state('mobile' 'tablet') {
+			@include gridle(12);
+		}
+	}
+	.nav-toggle:before {
+		color: $white;
+		text-shadow: none;
+		&:hover {
+			background-color: rgba($black, .3);
+			color: $white;
+		}
+	}
+	h1 {
+		letter-spacing: -2px;
+		text-shadow: 0 0 14px rgba($black, .5);
+		@include baseline-margin($baseline, 4, 0);
+	}
+	@include gridle_state('tablet' 'mobile') {
+		@include baseline-padding($baseline, 2, 2);
+		#kiwi {
+			width: 50px;
+		}
+		h1 {
+			letter-spacing: -1px;
+			@include baseline-margin($baseline, 1, 0);
+			@include baseline-font-size($font-size-h1 * .6);
+		}
+	};
+}
+.boxed {
+	text-align: center;
+	> * {
+		border: 10px solid;
+		padding: .25em .5em;
+		display: inline-block;
+		@include baseline-margin($baseline, 0, 4);
+	}
+	&.rounded > * {
+		border-radius: .25em
+	}
+}
+.product {
+	@include clearfix();
+	@include baseline-margin($baseline, 4, 0);
+	img {
+		@include gridle(4);
+		@include gridle_prefix(1);
+	}
+	h1 {
+		letter-spacing: -2px;
+		text-shadow:none;
+		@include gridle(6);
+		@include gridle_prefix(1);
+	}
+}
+.bg {
+position: absolute; opacity: 1; left: 0px; top: 0px; width: 100%; height: 100%;
+overflow: hidden;
+}
+.bg-video, iframe, .bg img {
+	// -webkit-filter: grayscale(1);
+	// -moz-filter: grayscale(1);
+	// -ms-filter: grayscale(1);
+	// filter: grayscale(1);
+	 -webkit-transform:translateX(-50%) translateY(-50%);
+   -moz-transform:translateX(-50%) translateY(-50%);
+    -ms-transform:translateX(-50%) translateY(-50%);
+     -o-transform:translateX(-50%) translateY(-50%);
+        transform:translateX(-50%) translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    // margin-left: -50%;
+    // margin-top: -50%;
+   
+}
+.bg:after { content:' ';background-image: url(../img/pattern.png); position: absolute; opacity: .8; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 1; }
+
+
+
+
+
+
+
+
+// Normal Grid container
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $gridle-row-width;
+	z-index: 5;
+	position: relative;
+	//@include gridle_parent ( ); 
+}
+.row {
+	@include gridle(10);
+	float: none;
+	position: relative;
+	@include gridle_prefix ( 2 );
+	//padding-left: 20%;
+	//@include baseline-margin($baseline, 0, .5);
+	@include gridle_state('mobile' 'tablet') {
+		@include gridle_prefix(0);
+		@include gridle (12);
+		@include baseline-padding($baseline, 1, 0);
+	}
+}
+.label {
+	font-family: $font-family-base;
+	width: auto;
+	//position: absolute;
+	bottom: 0;
+	left: 0;
+	//font-family: $font-family-base;
+	//@include baseline-font-size(12, $font-size-base);
+	font-size: 13px;
+	line-height: inherit;
+	@include baseline-margin($baseline, 1, .5);
+	font-weight: 400;
+	//line-height: 1;
+	letter-spacing: 0;
+	color: $gray2;
+	// @include gridle ( 2, 10 );
+	// @include gridle_prefix ( -2, 10 );
+	&.bottom-0 {
+		bottom: 0;
+	}
+	&.top-0 {
+		top: 0;
+		bottom: auto;
+	}
+	@include gridle_state('mobile' 'tablet') {
+		@include gridle(12);
+		@include gridle_prefix ( 0 );
+		top:0;
+		bottom: auto;
+	}
+}
+.form-demo-1 {
+	@include gridle_parent ( );
+	@include baseline-margin($baseline, 0, 1);
+}
+.inline-form-container {
+	@include gridle(6);
+	@include baseline-margin($baseline, 0, 1);
+	@include gridle_state('mobile' 'tablet') {
+		@include gridle(12);
+	}
+}
+.full-form-container {
+	@include gridle(12);
+	@include baseline-margin($baseline, 0, 1);
+}
+.content-tiles {
+	@include gridle(3);
+	@include baseline-margin($baseline, 0, 1);
+	img {
+		width: auto;
+		height: 150px;
+	}
+	@include gridle_state('mobile') {
+		@include gridle(12);
+		img {
+			width: 70%;
+			max-height: 170px;
+		}
+	}
+	@include gridle_state('tablet') {
+		@include gridle(6);
+		img {
+			width: 60%;
+			max-height: 150px;
+		}
+	}
+
+}
+.bg-demo p {
+	padding: 15px
+}
+.data {
+	@include gridle(9)
+}
+h1 {
+	&.lead {
+		border-bottom: 1px solid $primary
+	}
+}
+
+// .block {
+// 	@include clearfix();
+// }
+#buttons {
+	//display: table;
+	// h1 {
+	// 	margin-left: 15px
+	// }
+	.colors {
+		//display: table-row;
+		//clear: both;
+		@include gridle_parent ( );
+		@include gridle(8);
+		@include gridle(6, 'tablet');
+		@include gridle(6, 'mobile');
+		.td {
+			@include gridle(6);
+			@include gridle(12, 'tablet');
+			@include gridle(12, 'mobile');
+			//display: table-cell !important;
+			//float: none;
+		}
+	}
+	.sizes {
+		@include gridle(3);
+		@include gridle(6, 'tablet');
+		@include gridle(6, 'mobile');
+		@include gridle_prefix ( 1 );
+		@include gridle_prefix ( 0, 'tablet');
+		@include gridle_prefix ( 0, 'mobile');
+	}
+	.td {
+		margin-bottom: 15px;
+		@include baseline-margin($baseline, 0, 1);
+	}
+}
+#header {
+	@include gridle_parent ( ); 
+	// 	li {
+	// 	@include gridle ( 4 );
+	// 	@include gridle ( 12 , 'mobile' );
+	// }
+}
+.container {
+	clear: both;
+}
+// .container li {
+// 	@include gridle ( 4 );
+// 	@include gridle_prefix ( 6, 'tablet');
+// 	@include gridle ( 6 , 'tablet' );
+// 	@include gridle ( 12 , 'mobile' );
+// }
+// #nav.container li {
+// 	@include gridle_prefix ( 0, 'tablet');
+// }
