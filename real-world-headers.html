@@ -13,11 +13,11 @@
 <body class="gridle-debug" id="top">
 
 <div class="container">
-	<div class="label">Header 1 (Youtube video)</div>
+	<div class="label">Header 1 (Youtube embed video)</div>
 </div>
 <header class="header header-1">
 	<div class="bg">
-		<iframe width="500" height="281" src="http://www.youtube.com/embed/_YEyzvtMx3s?autoplay=1&amp;loop=1&amp;autohide=1&amp;wmode=opaque" frameborder="0" allowfullscreen=""></iframe>
+		<iframe width="500" height="281" src="http://www.youtube.com/embed/_YEyzvtMx3s" frameborder="0" allowfullscreen=""></iframe>
 	</div>
 	<div class="container nav-bar">
 		<a href="#top" class="logo" data-scroll>
@@ -63,7 +63,7 @@
 </header>
 
 <div class="container">
-	<div class="label">Header 1 (Alt1 *Local video)</div>
+	<div class="label">Header 1 (Alt1 *Local html5 video)</div>
 </div>
 <header class="header header-1">
 	<div class="bg">
@@ -355,6 +355,24 @@
 	<script src="vendor/fixed-nav-master/js/fixed-responsive-nav.js"></script>
 	<script src="js/custom-selects.js"></script>
 	<script>
+function ytAutoParams () {
+	$('.bg iframe').each(function () {
+		if($(this).attr('src').indexOf('youtube') > -1){
+			var src = $(this).attr('src'),
+				qs = '',
+				vId;
+			vId = src.indexOf('embed/') > -1 ? src.split('embed/') : src.split('v/');
+			qs = src.indexOf('autoplay') === -1 ? qs +'autoplay=1&' : qs +'';
+			qs = src.indexOf('loop') === -1 ? qs +'loop=1&' : qs +'';
+			qs = src.indexOf('playlist') === -1 ? qs +'playlist='+ vId[1] +'&' : qs +'';
+			qs = src.indexOf('controls') === -1 ? qs +'controls=0&' : qs +'';
+			qs = src.indexOf('autohide') === -1 ? qs +'autohide=1&' : qs +'';
+			qs = src.indexOf('wmode') === -1 ? qs +'wmode=opaque&' : qs +'';
+			qs = src.indexOf('?') === -1 ? '?'+ qs : '&'+ qs;
+			$(this).attr('src', src + qs);
+		}
+	});
+}
 function bgVideoResize () {
 	var oWidth = $('.bg iframe').attr('width') || 16,
 		oHeight = $('.bg iframe').attr('height') || 9,
@@ -367,7 +385,11 @@ function bgVideoResize () {
 		$('.bg iframe').css('width', oWidth * $('.bg iframe').height() / oHeight).css('height', pHeight);
 	}
 }
-$(document).ready(bgVideoResize);
+function setupVideos () {
+	ytAutoParams();
+	bgVideoResize();
+}
+$(document).ready(setupVideos);
 $(window).resize(bgVideoResize);
 </script>
 </body>
