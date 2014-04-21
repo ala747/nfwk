@@ -19,31 +19,31 @@ $gridle-html-states-classes : false; // not really for production, used for demo
 
 // Colors
 // -------------------------
-// $white : #fff;
-// $black : #000;
-// $primary : #1ABC9C;
-// $secondary : #E67E22;
-// $error : #E74C3C;
-// $warning : #F1C40F;
-// $info : #3498DB;
-// $success : #2ECC71;
-// $gray1 : #ECF0F1;
-// $gray2 : #95A5A6;
-// $gray3 : #34495E;
-// $mental : #9B59B6;
-
-$white : lighten(#e9edf3,5%);
+$white : #fff;
 $black : #000;
-$primary : #EE4D2E;
-$secondary : #67B4D1;
-$error : adjust-hue(#E74C3C, 10);
-$warning : adjust-hue(#F1C40F, -5);
-$info : adjust-hue(#3498DB, 10);
-$success : adjust-hue(#2ECC71, -5);
-$gray1 : #e9edf3;
-$gray2 : #9EA6B6;
-$gray3 : #414859;
-$mental : adjust-hue(#9B59B6, 10);
+$primary : #1ABC9C;
+$secondary : #E67E22;
+$error : #E74C3C;
+$warning : #F1C40F;
+$info : #3498DB;
+$success : #2ECC71;
+$gray1 : #ECF0F1;
+$gray2 : #95A5A6;
+$gray3 : #34495E;
+$mental : #9B59B6;
+
+// $white : lighten(#e9edf3,5%);
+// $black : #000;
+// $primary : #EE4D2E;
+// $secondary : #67B4D1;
+// $error : adjust-hue(#E74C3C, 10);
+// $warning : adjust-hue(#F1C40F, -5);
+// $info : adjust-hue(#3498DB, 10);
+// $success : adjust-hue(#2ECC71, -5);
+// $gray1 : #e9edf3;
+// $gray2 : #9EA6B6;
+// $gray3 : #414859;
+// $mental : adjust-hue(#9B59B6, 10);
 
 $body-bg : $white;
 $body-fg : $gray3;

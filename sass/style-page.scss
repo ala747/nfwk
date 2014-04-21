@@ -91,12 +91,8 @@
 		}
 	}
 	h1 {
-		position: relative;
-		// top: 30%;
 		text-align: center;
-		width: 100%;
 		text-shadow: 0 0 14px rgba($black, .5);
-		@include baseline-padding($baseline, 4, 4);
 	}
 	@include gridle_state('tablet' 'mobile') {
 		padding: 0 0 200px;
@@ -188,7 +184,6 @@
 	h1 {
 		text-align: center;
 		text-shadow: 0 0 14px rgba($black, .5);
-		@include baseline-margin($baseline, 4, 0);
 	}
 	@include gridle_state('tablet' 'mobile') {
 		@include baseline-padding($baseline, 2, 2);
@@ -280,7 +275,6 @@
 	h1 {
 		text-align: center;
 		text-shadow: 0 0 14px rgba($white, .5);
-		@include baseline-margin($baseline, 4, 0);
 	}
 	@include gridle_state('tablet' 'mobile') {
 		@include baseline-padding($baseline, 2, 2);
@@ -369,7 +363,6 @@
 	h1 {
 		letter-spacing: -2px;
 		text-shadow: 0 0 14px rgba($black, .5);
-		@include baseline-margin($baseline, 4, 0);
 	}
 	@include gridle_state('tablet' 'mobile') {
 		@include baseline-padding($baseline, 2, 2);
@@ -439,7 +432,20 @@ overflow: hidden;
 
 
 
-
+.header {
+	.lead, h1 {
+		@include baseline-margin($baseline, 4, 0);
+		@include gridle_state('tablet' 'mobile') {
+			@include baseline-margin($baseline, 2, 0);
+			@include baseline-font-size($font-size-h1 * .6);
+		}
+	}
+	.lead {
+		@include gridle_state('tablet' 'mobile') {
+			@include baseline-font-size($font-size-h1 * .5);
+		}
+	}
+}
 
 
 
