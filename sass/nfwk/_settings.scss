@@ -19,18 +19,31 @@ $gridle-html-states-classes : false; // not really for production, used for demo
 
 // Colors
 // -------------------------
-$white : #fff;
+// $white : #fff;
+// $black : #000;
+// $primary : #1ABC9C;
+// $secondary : #E67E22;
+// $error : #E74C3C;
+// $warning : #F1C40F;
+// $info : #3498DB;
+// $success : #2ECC71;
+// $gray1 : #ECF0F1;
+// $gray2 : #95A5A6;
+// $gray3 : #34495E;
+// $mental : #9B59B6;
+
+$white : lighten(#e9edf3,5%);
 $black : #000;
-$primary : #1ABC9C;
-$secondary : #E67E22;
-$error : #E74C3C;
-$warning : #F1C40F;
-$info : #3498DB;
-$success : #2ECC71;
-$gray1 : #ECF0F1;
-$gray2 : #95A5A6;
-$gray3 : #34495E;
-$mental : #9B59B6;
+$primary : #EE4D2E;
+$secondary : #67B4D1;
+$error : adjust-hue(#E74C3C, 10);
+$warning : adjust-hue(#F1C40F, -5);
+$info : adjust-hue(#3498DB, 10);
+$success : adjust-hue(#2ECC71, -5);
+$gray1 : #e9edf3;
+$gray2 : #9EA6B6;
+$gray3 : #414859;
+$mental : adjust-hue(#9B59B6, 10);
 
 $body-bg : $white;
 $body-fg : $gray3;
@@ -50,34 +63,27 @@ $title-fg : $secondary;
     font-style: normal;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic|Roboto:400,700,300,100,900);
+@import url(http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic|Domine:400,700|Roboto:100,300,400,700,900);
 
-$font-family-base:          "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif; //"Arimo", 
+$font-family-base:          "Arimo","Helvetica Neue", Helvetica, Arial, sans-serif; //"Arimo", 
 $font-family-demo:          "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-monospace:     Monaco, Menlo, Consolas, "Courier New", monospace;
-$font-size-base:            16px;
-$context : 16 !default;
+$font-size-base:            16px !default;
+$line-height-base:          1.5 !default;
+$baseline : floor($font-size-base * $line-height-base) !default;
 
-// $font-size-h1:              floor($font-size-base * 3.444); // ~62px
-// $font-size-h2:              ceil($font-size-base * 2.889); // ~52px
-// $font-size-h3:              ceil($font-size-base * 2.222); // ~40px
-// $font-size-h4:              ceil($font-size-base * 1.611); // ~29px
-// $font-size-h5:              floor($font-size-base * 1.556); // ~28px
-// $font-size-h6:              ceil($font-size-base * 1.333); // ~24px
 
-$font-size-h1:              62; // ~62px
-$font-size-h2:              52; // ~52px
-$font-size-h3:              40; // ~40px
-$font-size-h4:              29; // ~29px
-$font-size-h5:              24; // ~28px
-$font-size-h6:              20; // ~24px
+$font-size-h1:              floor($font-size-base * 3.875); //62; // ~62px
+$font-size-h2:              floor($font-size-base * 3.25); //52; // ~52px
+$font-size-h3:              floor($font-size-base * 2.5); //40; // ~40px
+$font-size-h4:              floor($font-size-base * 1.8125); //29; // ~29px
+$font-size-h5:              floor($font-size-base * 1.5); //24; // ~24px
+$font-size-h6:              floor($font-size-base * 1.25); //20; // ~20px
 
-$line-height-base:          1.5; //1.72222; // 31/18
-$baseline : floor($context * $line-height-base) !default;
-$line-height-computed:      floor($font-size-base * $line-height-base); // ~31px
+
 
 $headings-font-family:      'Roboto', "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;;
-$headings-font-weight:      900;
+$headings-font-weight:      700;
 $headings-line-height:      1.1;
 $headings-color:            inherit;
 $headings-small-color:      lighten($secondary, 20%);
@@ -104,9 +110,6 @@ $page-header-border-color:    mix($gray3, $white, 25%);
 //** Hr border color
 $hr-border:                   mix($gray3, $white, 63%);
 
-
-// $blockquote-border-color
-// $blockquote-small-color
 $state-primary-border: darken(adjust-hue($primary, -10), 5%);
 
 $state-secondary-text:          $secondary;
@@ -138,7 +141,7 @@ $state-danger-border:         darken(adjust-hue($state-danger-bg, -10), 5%);
 //## Define common padding and border radius sizes and more.
 
 //** Default font-size in components
-$component-font-size-base:  ceil($font-size-base * 0.833); // ~15px
+$component-font-size-base: $font-size-base; // ceil($font-size-base * 0.8125); // ~15px
 
 // Border-radius
 $border-radius-base:        4px;
@@ -150,16 +153,16 @@ $border-radius-small:       3px;
 //## For each of Flat UI's buttons, define text, background, font size and height.
 
 $btn-font-size-base:         $component-font-size-base;
-$btn-font-size-xs:           ceil($component-font-size-base * 0.80);   // ~12px
-$btn-font-size-sm:           floor($component-font-size-base * 0.867); // ~13px
-$btn-font-size-lg:           ceil($component-font-size-base * 1.133);  // ~17px
-$btn-font-size-hg:           floor($component-font-size-base * 1.467); // ~22px
+$btn-font-size-xs:           round($component-font-size-base * 0.6875);   // ~12px
+$btn-font-size-sm:           round($component-font-size-base * 0.8125); // ~13px
+$btn-font-size-lg:           round($component-font-size-base * 1.25);  // ~17px
+$btn-font-size-hg:           round($component-font-size-base * 1.5); // ~22px
 
-$btn-line-height-base:       1.4;   // ~21px
-$btn-line-height-hg:         1.227; // ~27px
-$btn-line-height-lg:         1.471; // ~25px
-$btn-line-height-sm:         1.385; // ~16px
-$btn-line-height-xs:         1.083; // ~13px
+// $btn-line-height-base:       1.4;   // ~21px
+// $btn-line-height-hg:         1.227; // ~27px
+// $btn-line-height-lg:         1.471; // ~25px
+// $btn-line-height-sm:         1.385; // ~16px
+// $btn-line-height-xs:         1.083; // ~13px
 
 $btn-social-font-size-base:   floor($component-font-size-base * 0.867); // ~13px
 $btn-social-line-height-base: 1.077;  // ~14px
@@ -197,4 +200,4 @@ $btn-link-disabled-color:    $gray1;
 // Nav bar
 //
 //##
-$nav-bar-height:  55px;
+$nav-bar-height: $baseline * 2;

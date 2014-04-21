@@ -8,16 +8,17 @@
   position: relative;
   border: none;
   display: inline-block;
-  font-size: $btn-font-size-base;
+  //font-size: $btn-font-size-base;
   font-weight: $btn-font-weight;
-  line-height: $btn-line-height-base;
-  border-radius: $border-radius-base;
-  padding: 10px 15px;
+  //line-height: $btn-line-height-base;
+  //@include baseline-font-size($btn-font-size-base);
+  //border-radius: $border-radius-base;
+  //padding: 10px 15px;
   text-align: center;
   vertical-align: baseline;
   -webkit-font-smoothing: subpixel-antialiased;
   @include transition(unquote("border .25s linear, color .25s linear, background-color .25s linear"));
-  
+  @include button-size(.5, 1, $btn-font-size-base, $border-radius-base);
 
   &:hover,
   &:focus {
@@ -135,16 +136,16 @@
 // --------------------------------------------------
 
 .btn-hg {
-  @include button-size(13px, 20px, $btn-font-size-hg, $btn-line-height-hg, $border-radius-large);
+  @include button-size(1, 1, $btn-font-size-hg, $border-radius-large);
 }
 .btn-lg {
-  @include button-size(10px, 19px, $btn-font-size-lg, $btn-line-height-lg, $border-radius-large);
+  @include button-size(.75, 1, $btn-font-size-lg, $border-radius-large);
 }
 .btn-sm {
-  @include button-size(9px, 13px, $btn-font-size-sm, $btn-line-height-sm, $border-radius-base);
+  @include button-size(.25, 1, $btn-font-size-sm, $border-radius-base);
 }
 .btn-xs {
-  @include button-size(6px, 9px, $btn-font-size-xs, $btn-line-height-xs, $border-radius-small);
+  @include button-size(0, 1, $btn-font-size-xs, $border-radius-small); // FIXME: that weird top pixel gap :S
 }  
   
 

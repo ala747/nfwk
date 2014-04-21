@@ -116,7 +116,7 @@ p {
   @include gridle_centered ( );
   max-width: $gridle-row-width;
   //width: 100%;
-  z-index: 10001;
+  z-index: 10001 !important;
   @include clearfix();
   & .nav-collapse {
       float: right;
@@ -124,7 +124,7 @@ p {
   &.fixed {
   	background-color: rgba($black, .8);
   	color: $white;
-    z-index: 100002;
+    z-index: 100002 !important;
     max-width: 100%;
   	& .nav-collapse {
   		a {
@@ -168,7 +168,7 @@ p {
   visibility: hidden;
   position: fixed;
   opacity: 0;
-  z-index: 10000;
+  z-index: 10000 !important;
   bottom: 0;
   right: 0;
   left: 0;
@@ -238,16 +238,16 @@ p {
 .nav-collapse {
   a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  border-top: 1px solid white;
+  //border-top: 1px solid white;
   text-decoration: none;
   //background: $gray1;
-  padding: 0.7em 1em;
+  padding: round($baseline / 2) $baseline;
   color: $primary;
   width: 100%;
   float: left;
   @include gridle_state('tablet' 'desktop') {
-    border-left: 1px solid white;
-    padding: 1.02em 2em;
+    margin-left: 1px;
+    padding: round($baseline / 2) $baseline;
     text-align: center;
     border-top: 0;
     float: left;
@@ -256,7 +256,7 @@ p {
   @include gridle_state('tablet') {
     font-size: 12px;
     line-height: 24px;
-    height: 55px;
+    //height: 55px;
   }
   &:hover {
     background: rgba($black, .05); //mix($gray1, black, 85%);

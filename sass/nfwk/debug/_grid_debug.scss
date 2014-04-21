@@ -17,8 +17,9 @@
     top: 0;
     left: 50%;
     margin-left: -($gridle-row-width / 2);
+    @include gridle_parent ( );
     & * {
--moz-box-sizing: content-box; -webkit-box-sizing: content-box-box; box-sizing: content-box-box;
+//-moz-box-sizing: content-box; -webkit-box-sizing: content-box-box; box-sizing: content-box-box;
     }
 }
 
@@ -30,17 +31,14 @@
  */
 
 #grid div.vert{
-
-    width: 68.5px;
+    width: 5.7695%;
     border: solid darkturquoise;
     border-width: 0 1px;
-    margin-right: 29px;
+    margin: 0 15px;
 
 }
 
 #grid div.vert.first-line{
-
-    margin-left: 14px;
 
 }
 
@@ -54,7 +52,7 @@
 #grid div.horiz{
 
     /* 20px line height */
-    height: #{$baseline}px;
+    height: $baseline;
     border-bottom: 1px dotted darkgray;
     margin: 0;
     padding: 0;

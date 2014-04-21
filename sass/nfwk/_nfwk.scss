@@ -19,9 +19,7 @@
 
 body {
   font-family: $font-family-base;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  @include baseline-font-size(16);
+  @include baseline-font-size($font-size-base);
   color: $text-color;
   background-color: $body-bg;
 }

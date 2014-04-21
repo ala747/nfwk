@@ -22,7 +22,7 @@
   height: 100%;
 }
 body {
-	padding-top: 61px
+	padding-top: 72px
 }
 
 .fixed {
@@ -48,7 +48,7 @@ body {
 }
 .row {
 	@include gridle(10);
-	float: none;
+	//float: none;
 	position: relative;
 	@include gridle_prefix ( 2 );
 	//padding-left: 20%;
@@ -60,6 +60,7 @@ body {
 	}
 }
 .label {
+	font-family: $font-family-base;
 	width: auto;
 	position: absolute;
 	bottom: 0;
@@ -128,14 +129,17 @@ body {
 
 }
 .bg-demo p {
-	padding: 15px
+	padding: $baseline / 2;
+	&.border {
+		padding: $baseline / 2 - 1;
+	}
 }
 .data {
 	@include gridle(9)
 }
 h1 {
 	&.lead {
-		border-bottom: 1px solid $primary
+		box-shadow: 0 1px 0 $primary
 	}
 }
 
@@ -171,7 +175,6 @@ h1 {
 		@include gridle_prefix ( 0, 'mobile');
 	}
 	.td {
-		margin-bottom: 15px;
 		@include baseline-margin($baseline, 0, 1);
 	}
 }

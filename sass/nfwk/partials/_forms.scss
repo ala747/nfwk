@@ -4,9 +4,9 @@
 	border: 2px solid $gray2;
 	color: $gray3;
 	font-family: $font-family-base;
-	@include baseline-font-size(16);
-	padding: 8px 12px;
-	height: ($font-size-base * 2.5);
+	@include baseline-font-size($font-size-base);
+	padding: floor($baseline / 4) floor($baseline / 2);
+	height: ($baseline * 1.5);
 	-webkit-appearance: none;
 	border-radius: $border-radius-large;
 	-webkit-box-shadow: none;

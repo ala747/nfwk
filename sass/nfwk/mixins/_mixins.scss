@@ -1,22 +1,26 @@
-@mixin baseline-font-size($target, $context: 16) {
-  font-size: #{($target / $context) * $context}px; /* #{$target}px / #{$context}px */
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@mixin baseline-font-size($target, $context: 16px) {
+  font-size: ($target / $context) * $context; /* #{$target}px / #{$context}px */
   $lineHeight: ceil($target / $baseline) * $baseline;
   // set in pixels due to em rounding issues breaking the rhythm */
 
-  line-height: #{$lineHeight}px; 
+  line-height: $lineHeight; 
 }
 
-@mixin baseline-margin($context: 16, $topAmount: 1, $bottomAmount: 1) {
+@mixin baseline-margin($context: 16px, $topAmount: 1, $bottomAmount: 1) {
   // set in pixels due to em rounding issues breaking the rhythm */
-  margin-top: #{$topAmount * $baseline}px;
-  margin-bottom: #{$bottomAmount * $baseline}px;
+  margin-top: #{$topAmount * $baseline};
+  margin-bottom: #{$bottomAmount * $baseline};
 
 }
 
-@mixin baseline-padding($context: 16, $topAmount: 1, $bottomAmount: 1 ) {
+@mixin baseline-padding($context: 16px, $topAmount: 1, $bottomAmount: 1 ) {
   // set in pixels due to em rounding issues breaking the rhythm */
-  padding-top: #{$topAmount * $baseline}px;
-  padding-bottom: #{$bottomAmount * $baseline}px;
+  padding-top: #{$topAmount * $baseline};
+  padding-bottom: #{$bottomAmount * $baseline};
 }
 
 @mixin baseline-float($direction: left) {
@@ -103,9 +107,13 @@
 
 // Button sizes
 // -------------------------
-@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
-	padding: $padding-vertical $padding-horizontal;
-	font-size: $font-size;
-	line-height: $line-height;
+@mixin button-size($padding-vertical: .25, $padding-horizontal: .25, $font-size: $font-size-base, $border-radius: $border-radius-base) {
+	padding-left: round($font-size * $padding-horizontal);
+  padding-right: round($font-size * $padding-horizontal);
+  @include baseline-padding($font-size, $padding-vertical, $padding-vertical);
+  //top: -#{$padding-vertical * $baseline};
+	// font-size: $font-size;
+	// line-height: $line-height;
+  @include baseline-font-size($font-size);
 	border-radius: $border-radius;
 }

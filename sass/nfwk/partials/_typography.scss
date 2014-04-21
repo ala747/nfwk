@@ -21,20 +21,13 @@ h1, h2, h3, h4, h5, h6,
 h1,
 h2,
 h3 {
-  // margin-top: $line-height-computed;
-  // margin-bottom: ($line-height-computed / 2);
   letter-spacing: -1px;
 }
 h4,
 h5,
 h6 {
-  // margin-top: ($line-height-computed / 2);
-  // margin-bottom: ($line-height-computed / 2);
-}
 
-// h6 {
-//   font-weight: normal;
-// }
+}
 
 h1, .h1 { @include baseline-font-size($font-size-h1); @include baseline-margin($baseline, 0, 1); } // ~62px
 h2, .h2 { @include baseline-font-size($font-size-h2); @include baseline-margin($baseline, 0, 1); } // ~52px
@@ -47,19 +40,14 @@ h6, .h6 { @include baseline-font-size($font-size-h6); @include baseline-margin($
 // -------------------------
 
 p {
-  @include baseline-font-size(16, $context); 
+  @include baseline-font-size($font-size-base); 
   @include baseline-margin($baseline, 0, 1);
-  // font-size:   $font-size-base;
-  // line-height: $line-height-base;
-  // margin: 0 0 ($line-height-computed / 2);
 }
 
 .lead {
   font-family: $headings-font-family;
-  margin-bottom: $line-height-computed;
-  font-size:   floor($font-size-base * 2.5);  // ~28px
-  line-height: 1.46428571;                      // ~41px
-  @include baseline-font-size(16 * 2.5); 
+  margin-bottom: $baseline;
+  @include baseline-font-size($font-size-base * 2.5); 
   @include baseline-margin($baseline, 0, 1);
   font-weight: 300;
 }
@@ -68,18 +56,15 @@ p {
 // -------------------------
 strong, b {
   font-weight: 700;
-  font-size: 110%;
   line-height: 1;
 }
 em, i {
   font-style: italic;
 }
 
-// Ex: 18px base font * 83% = about 15px
 small,
 .small {
-  font-size: 83%;     // ~15px
-  //line-height: 2.067; // ~31px
+  font-size: 83%;
 }
 
 // Contextual emphasis
@@ -124,7 +109,7 @@ small,
   // automatically.
   color: $white;
   @include bg-variant($gray3);
-  border-color: darken(adjust-hue($gray3, -10), 5%);;
+  border-color: darken(adjust-hue($gray3, -10), 5%);
 }
 .bg-secondary {
   @include bg-variant($state-secondary-bg);
@@ -158,13 +143,13 @@ small,
 // Unordered and Ordered lists
 ul,
 ol {
-  margin-bottom: ($line-height-computed / 2);
+  margin-bottom: ($baseline / 2);
   @include baseline-margin($baseline, 0, 1);
 }
 
 // Description Lists
 dl {
-  margin-bottom: $line-height-computed;
+  margin-bottom: $baseline;
 }
 dt,
 dd {
@@ -179,16 +164,14 @@ abbr[data-original-title] {
 
 // Blockquotes
 blockquote {
-  //border-left: 3px solid $blockquote-border-color;
   padding: 0 0 0 40px;
-  margin: 0 0 $line-height-computed;
+  margin: 0 0 $baseline;
   @include baseline-margin($baseline, 0, .5);
   position: relative;
   &:before {
     display: block;
     content: "\201C";
-    font-size: ($font-size-base * 10);
-    @include baseline-font-size(16 * 11);
+    @include baseline-font-size($font-size-base * 11);
     line-height: 1;
     position: absolute;
     left: -20px;
@@ -197,19 +180,15 @@ blockquote {
   }
   p {
     font-family: $headings-font-family;
-    font-size: ceil($font-size-base * 1.5); // ~20px
-    line-height: 1.55;                        // ~31px
     font-weight: normal;
     margin-bottom: .4em;
-    @include baseline-font-size(16 * 1.4);
+    @include baseline-font-size($font-size-base * 1.4);
     @include baseline-margin($baseline, 0, .5);
   }
   small,
   cite,
   .small {
-    // font-size: $font-size-base;
-    // line-height: $line-height-base;
-    @include baseline-font-size(16);
+    @include baseline-font-size($font-size-base);
     @include baseline-margin($baseline, 0, .5);
     font-style: italic;
     color: $blockquote-small-color;
@@ -221,11 +200,18 @@ blockquote {
   
   // Float right with text-align: right
   &.pull-right {
-    padding-right: 16px;
-    padding-left: 0;
-    border-right: 3px solid $blockquote-border-color;
-    border-left: 0;
-
+    padding: 0 40px 0 0;
+    &:before {
+      display: block;
+      content: "\201D";
+      @include baseline-font-size($font-size-base * 11);
+      line-height: 1;
+      position: absolute;
+      left: auto;
+      right: -20px;
+      top: -($font-size-base * $line-height-base);
+      color: $blockquote-border-color;
+    }
     small {
       &:after {
         content: "";
@@ -236,6 +222,6 @@ blockquote {
 
 // Addresses
 address {
-  margin-bottom: $line-height-computed;
+  margin-bottom: $baseline;
   line-height: $line-height-base;
 }
