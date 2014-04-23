@@ -32,18 +32,41 @@ $gridle-html-states-classes : false; // not really for production, used for demo
 // $gray3 : #34495E;
 // $mental : #9B59B6;
 
-$white : lighten(#e9edf3,5%);
-$black : #000;
+// Autoschemer
+// --------------------------
+$scheme-type : 'rectangle'; // square|rectangle|triad|split-complementary|analogous|complementary
 $primary : #EE4D2E;
-$secondary : #67B4D1;
-$error : adjust-hue(#E74C3C, 10);
-$warning : adjust-hue(#F1C40F, -5);
-$info : adjust-hue(#3498DB, 10);
-$success : adjust-hue(#2ECC71, -5);
-$gray1 : #e9edf3;
-$gray2 : #9EA6B6;
-$gray3 : #414859;
-$mental : adjust-hue(#9B59B6, 10);
+$secondary : secondary();
+$tertiary : tertiary();
+$quadrary : quadrary();
+$mental : $tertiary;
+
+$gray2 : mix(desaturate($primary, 80%), black, 100%);
+$gray3 : mix($gray2, black, 40%);
+$gray1 : mix($gray2, white, 20%);
+
+
+$white : mix($primary, white, 4%);
+$black : mix($primary, black, 4%);
+
+$error : #E74C3C;
+$warning : #F1C40F;
+$info : #3498DB;
+$success : #2ECC71;
+
+// $white : argh();
+// $white : lighten(#e9edf3,5%);
+//$black : #000;
+//$primary : #EE4D2E;
+//$secondary : #67B4D1;
+// $error : adjust-hue(#E74C3C, 10);
+// $warning : adjust-hue(#F1C40F, -5);
+// $info : adjust-hue(#3498DB, 10);
+// $success : adjust-hue(#2ECC71, -5);
+//$gray1 : #e9edf3;
+//$gray2 : #9EA6B6;
+//$gray3 : #414859;
+//$mental : adjust-hue(#9B59B6, 10);
 
 $body-bg : $white;
 $body-fg : $gray3;
@@ -110,30 +133,31 @@ $page-header-border-color:    mix($gray3, $white, 25%);
 //** Hr border color
 $hr-border:                   mix($gray3, $white, 63%);
 
-$state-primary-border: darken(adjust-hue($primary, -10), 5%);
+$state-primary-bg:            mix($black, $body-bg, 80%); //#dff0d8;
+$state-primary-border: 		darken(adjust-hue($state-primary-bg, -10), 5%);
 
 $state-secondary-text:          $secondary;
-$state-secondary-bg:            mix($secondary, white, 15%); //#dff0d8;
+$state-secondary-bg:            mix($secondary, $body-bg, 15%); //#dff0d8;
 $state-secondary-border:        darken(adjust-hue($state-secondary-bg, -10), 5%);
 
 $state-mental-text:          $mental;
-$state-mental-bg:            mix($mental, white, 15%); //#dff0d8;
+$state-mental-bg:            mix($mental, $body-bg, 15%); //#dff0d8;
 $state-mental-border:        darken(adjust-hue($state-mental-bg, -10), 5%);
 
 $state-success-text:          $success;
-$state-success-bg:            mix($success, white, 15%); //#dff0d8;
+$state-success-bg:            mix($success, $body-bg, 15%); //#dff0d8;
 $state-success-border:        darken(adjust-hue($state-success-bg, -10), 5%);
 
 $state-info-text:             $info;
-$state-info-bg:               mix($info, white, 15%); //#d9edf7;
+$state-info-bg:               mix($info, $body-bg, 15%); //#d9edf7;
 $state-info-border:           darken(adjust-hue($state-info-bg, -10), 7%);
 
 $state-warning-text:          $warning;
-$state-warning-bg:            mix($warning, white, 15%); //#fcf8e3;
+$state-warning-bg:            mix($warning, $body-bg, 15%); //#fcf8e3;
 $state-warning-border:        darken(adjust-hue($state-warning-bg, -10), 5%);
 
 $state-danger-text:           $error;
-$state-danger-bg:             mix($error, white, 15%); //#f2dede;
+$state-danger-bg:             mix($error, $body-bg, 15%); //#f2dede;
 $state-danger-border:         darken(adjust-hue($state-danger-bg, -10), 5%);
 
 //== Components

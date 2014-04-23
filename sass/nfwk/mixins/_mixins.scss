@@ -30,7 +30,57 @@
 }
 
 
-
+@function secondary() {
+  $color : $primary;
+  @if $scheme-type == 'square' or $scheme-type == 'rectangle' or $scheme-type == 'complementary' {
+    @return adjust-hue($color, 180deg);
+  }
+  @if $scheme-type == 'triad' {
+    @return adjust-hue($color, -120deg);
+  }
+  @if $scheme-type == 'analogous' {
+    @return adjust-hue($color, 30deg);
+  }
+  @if $scheme-type == 'split-complementary' {
+    @return adjust-hue($color, 150deg);
+  }
+  @else {
+    @return $color;
+  }
+}
+@function tertiary() {
+  $color : $primary;
+  @if $scheme-type == 'square' {
+    @return adjust-hue($color, 90deg);
+  }
+  @if $scheme-type == 'rectangle' {
+    @return adjust-hue($color, 50deg);
+  }
+  @if $scheme-type == 'triad' {
+    @return adjust-hue($color, 120deg);
+  }
+  @if $scheme-type == 'analogous' {
+    @return adjust-hue($color, -30deg);
+  }
+  @if $scheme-type == 'split-complementary' {
+    @return adjust-hue($color, -150deg);
+  }
+  @else {
+    @return $color;
+  }
+}
+@function quadrary() {
+  $color : $primary;
+  @if $scheme-type == 'square' {
+    @return adjust-hue($color, -90deg);
+  }
+  @if $scheme-type == 'rectangle' {
+    @return adjust-hue($color, 140deg);
+  }
+  @else {
+    @return $color;
+  }
+}
 
 
 

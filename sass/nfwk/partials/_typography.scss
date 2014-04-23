@@ -108,7 +108,7 @@ small,
   // Given the contrast here, this is the only class to have its color inverted
   // automatically.
   color: $white;
-  @include bg-variant($gray3);
+  @include bg-variant($state-primary-bg);
   border-color: darken(adjust-hue($gray3, -10), 5%);
 }
 .bg-secondary {
