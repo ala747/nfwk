@@ -82,8 +82,30 @@
   }
 }
 
+@function is-dark($color) {
+  @if (lightness($color) < 60% and (hue($color) >= 210 or hue($color) <= 27)) or (lightness($color) <= 50%)  {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
 
+@mixin text-color($bg_color) {
+  @if is-dark($bg_color){
+    color: lighten(white, lightness($bg_color) / 5); //$text-color-light
+  }
+  @else {
+    color: black; //$text-color-dark
+  }
+}
 
+@function set-saturation($color, $saturation) {
+  @return hsla(hue($color), $saturation, lightness($color), alpha($color));
+}
+
+@function set-lightness($color, $lightness) {
+  @return hsla(hue($color), saturation($color), $lightness, alpha($color));
+}
 
 @mixin text-emphasis-variant($color) {
 	color: $color;
@@ -94,6 +116,7 @@
 
 @mixin bg-variant($color) {
 	background-color: $color !important;
+  @include text-color($color);
 	& a:hover {
 		background-color: darken($color, 10%) !important;
 	}
@@ -123,7 +146,7 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 @mixin button-variant($color, $background, $hover-background, $active-background, $disabled-background: $gray1) {
-  color: $color;
+  @include text-color($background);
   background-color: $background;
 
   &:hover,
@@ -131,7 +154,8 @@
   &:active,
   &.active,
   .open .dropdown-toggle {
-    color: $color;
+    //@include text-color($hover-background);
+    @include text-color($background);
     background-color: $hover-background;
     border-color: $hover-background;
   }

@@ -19,58 +19,94 @@ $gridle-html-states-classes : false; // not really for production, used for demo
 
 // Colors
 // -------------------------
-// $white : #fff;
-// $black : #000;
-// $primary : #1ABC9C;
-// $secondary : #E67E22;
-// $error : #E74C3C;
-// $warning : #F1C40F;
-// $info : #3498DB;
-// $success : #2ECC71;
-// $gray1 : #ECF0F1;
-// $gray2 : #95A5A6;
-// $gray3 : #34495E;
-// $mental : #9B59B6;
 
 // Autoschemer
 // --------------------------
-$scheme-type : 'rectangle'; // square|rectangle|triad|split-complementary|analogous|complementary
-$primary : #EE4D2E;
-$secondary : secondary();
-$tertiary : tertiary();
-$quadrary : quadrary();
+	$scheme-type : 'square'; // square|rectangle|triad|split-complementary|analogous|complementary
+
+	// Colors by autoschemer
+	$primary : #1ABC9C;
+	$secondary : secondary();
+	$tertiary : tertiary();
+	$quadrary : quadrary();
+
+// Colors by hand
+	// $primary : #EE4D2E;
+	// $secondary : #67B4D1;
+	// $tertiary : #EE4D2E;
+	// $quadrary : #EE4D2E;
+
+// Messages colors
+$error : #D8000C;
+$warning : #dFa000;
+$info : #0098DB;
+$success : #5F9A20;
 $mental : $tertiary;
 
-$gray2 : mix(desaturate($primary, 80%), black, 100%);
-$gray3 : mix($gray2, black, 40%);
-$gray1 : mix($gray2, white, 20%);
-
+$gray : set-lightness(set-saturation($primary, 10%), 50%);
 
 $white : mix($primary, white, 4%);
 $black : mix($primary, black, 4%);
 
-$error : #E74C3C;
-$warning : #F1C40F;
-$info : #3498DB;
-$success : #2ECC71;
+$types : ('bg' 'background-color') ('fg' 'color');
+$colors : ('primary' $primary) ('secondary' $secondary) ('tertiary' $tertiary) ('quadrary' $quadrary) ('info' $info) ('success' $success) ('warning' $warning) ('error' $error) ('gray' $gray);
+$shades-light : ('light' 25%) ('lighter' 35%) ('lightest' 45%);
+$shades-dark : ('dark' 15%) ('darker' 20%) ('darkest' 35%);
 
-// $white : argh();
-// $white : lighten(#e9edf3,5%);
-//$black : #000;
-//$primary : #EE4D2E;
-//$secondary : #67B4D1;
-// $error : adjust-hue(#E74C3C, 10);
-// $warning : adjust-hue(#F1C40F, -5);
-// $info : adjust-hue(#3498DB, 10);
-// $success : adjust-hue(#2ECC71, -5);
-//$gray1 : #e9edf3;
-//$gray2 : #9EA6B6;
-//$gray3 : #414859;
-//$mental : adjust-hue(#9B59B6, 10);
+// Gray vars
+$gray-light : lighten($gray, 25%);
+$gray-lighter : lighten($gray, 35%);
+$gray-lightest : lighten($gray, 45%);
 
+$gray-dark : darken($gray, 15%);
+$gray-darker : darken($gray, 20%);
+$gray-darkest : darken($gray, 35%);
+
+$gray1 : $gray-lightest;
+$gray2 : $gray;
+$gray3 : $gray-darkest;
+
+//@function write-colors($types, $colors, $shades-light, $shades-dark){
+@each $x in $types {
+	@each $y in $colors {
+	    .#{nth($x,1)}-#{nth($y,1)} { 
+	        #{nth($x,2)}: #{nth($y,2)} !important;
+	        @if nth($x,2) == 'background-color'  {
+		        @include text-color(nth($y,2));
+		        border-color: darken(nth($y,2), 10%);
+		    }
+	    }
+	    @each $n in $shades-light {
+			.#{nth($x,1)}-#{nth($y,1)}-#{nth($n,1)} { 
+		        #{nth($x,2)}: lighten(nth($y,2), nth($n,2)) !important;
+		        @if nth($x,2) == 'background-color'  {
+		        	@include text-color(lighten(nth($y,2), nth($n,2)));
+		        	border-color: darken(lighten(nth($y,2), nth($n,2)), 10%);
+		        }
+		    }
+	    }
+	    @each $n in $shades-dark {
+			.#{nth($x,1)}-#{nth($y,1)}-#{nth($n,1)} { 
+		        #{nth($x,2)}: darken(nth($y,2), nth($n,2)) !important;
+		        @if nth($x,2) == 'background-color'  {
+		        	@include text-color(darken(nth($y,2), nth($n,2)));
+		        	border-color: lighten(darken(nth($y,2), nth($n,2)), 10%);
+		        }
+		    }
+	    }
+	}
+}
+//}
+
+//$write : write-colors($types, $colors, $shades-light, $shades-dark);
+
+// Colors for enjoy @ page
 $body-bg : $white;
 $body-fg : $gray3;
 $text-color : $gray3;
+$text-color-inverted : $white;
+$text-color-dark : $gray3;
+$text-color-light : $white;
 $link-color : $primary;
 $link-hover-color : darken($primary, 5%);
 $title-fg : $secondary;
@@ -213,10 +249,10 @@ $btn-success-active-bg:      mix($success, black, 85%);
 $btn-danger-hover-bg:        mix($error, white, 80%);
 $btn-danger-active-bg:       mix($error, black, 85%);
 
-$btn-warning-hover-bg:       overlay($warning, darken(white, 37.5%));
+$btn-warning-hover-bg:       mix($warning, white, 80%); //overlay($warning, darken(white, 37.5%));
 $btn-warning-active-bg:      mix($warning, black, 85%);
 
-$btn-inverse-hover-bg:       overlay($gray3, darken(white, 37.5%));
+$btn-inverse-hover-bg:       mix($gray3, white, 80%); //overlay($gray3, darken(white, 37.5%));
 $btn-inverse-active-bg:      mix($gray3, black, 85%);
 
 $btn-link-disabled-color:    $gray1;

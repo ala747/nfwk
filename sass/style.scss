@@ -188,6 +188,10 @@ h1 {
 .demo .container {
 	clear: both;
 }
+
+#colors td {
+	padding: 20px
+}
 // .container li {
 // 	@include gridle ( 4 );
 // 	@include gridle_prefix ( 6, 'tablet');
