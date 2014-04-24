@@ -107,6 +107,39 @@
   @return hsla(hue($color), saturation($color), $lightness, alpha($color));
 }
 
+@mixin write-colors(){
+  @each $x in $types {
+    @each $y in $colors {
+        .#{nth($x,1)}-#{nth($y,1)} { 
+            #{nth($x,2)}: #{nth($y,2)} !important;
+            @if nth($x,2) == 'background-color'  {
+              @include text-color(nth($y,2));
+              border-color: darken(nth($y,2), 10%);
+          }
+        }
+        @each $n in $shades-light {
+        .#{nth($x,1)}-#{nth($y,1)}-#{nth($n,1)} { 
+              #{nth($x,2)}: lighten(nth($y,2), nth($n,2)) !important;
+              @if nth($x,2) == 'background-color'  {
+                @include text-color(lighten(nth($y,2), nth($n,2)));
+                border-color: darken(lighten(nth($y,2), nth($n,2)), 10%);
+              }
+          }
+        }
+        @each $n in $shades-dark {
+        .#{nth($x,1)}-#{nth($y,1)}-#{nth($n,1)} { 
+              #{nth($x,2)}: darken(nth($y,2), nth($n,2)) !important;
+              @if nth($x,2) == 'background-color'  {
+                @include text-color(darken(nth($y,2), nth($n,2)));
+                border-color: lighten(darken(nth($y,2), nth($n,2)), 10%);
+              }
+          }
+        }
+    }
+  }
+}
+
+
 @mixin text-emphasis-variant($color) {
 	color: $color;
 	& a:hover {
