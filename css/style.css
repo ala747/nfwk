@@ -1995,7 +1995,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
-  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   /* 16pxpx / 16pxpx */
   line-height: 24px;
@@ -2155,7 +2155,7 @@ a:focus {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Roboto", "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 100;
   line-height: 1.1;
   color: inherit;
 }
@@ -3123,7 +3123,7 @@ p {
   display: block;
   border: 2px solid #95a5a6;
   color: #34495e;
-  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   /* 16pxpx / 16pxpx */
   line-height: 24px;
@@ -3230,7 +3230,7 @@ input[type="checkbox"]:disabled, input[type="checkbox"]:disabled + label:before,
   border: 2px solid #1abc9c;
   background: #1abc9c;
   color: white;
-  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16;
   /* 16px / 16pxpx */
   line-height: 24;
@@ -3391,7 +3391,7 @@ body {
 }
 
 .label {
-  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: auto;
   position: absolute;
   bottom: 0;

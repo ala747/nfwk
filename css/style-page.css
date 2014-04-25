@@ -78,7 +78,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   box-sizing: border-box;
 }
 
-.header-1 .logo, .header-1 .nav-collapse, .header-2 .logo, .header-2 .nav-collapse, .header-3 .logo, .header-3 .nav-collapse, .header-4 .logo, .header-4 .nav-collapse, .product img, .product h1, .row, .inline-form-container, .full-form-container, .content-tiles, .data, #buttons .colors, #buttons .colors .td, #buttons .sizes {
+.header-1 .logo, .header-1 .nav-collapse, .header-2 .logo, .header-2 .nav-collapse, .header-3 .logo, .header-3 .nav-collapse, .header-4 .logo, .header-4 .nav-collapse, .product img, .product h1, .content-2 article .image, .content-2 article .text, .content-3 article .image, .content-3 article .text, .row, .inline-form-container, .full-form-container, .content-tiles, .data, #buttons .colors, #buttons .colors .td, #buttons .sizes {
   display: inline-block;
   min-height: 1px;
   -webkit-box-sizing: border-box;
@@ -1995,7 +1995,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
-  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   /* 16pxpx / 16pxpx */
   line-height: 24px;
@@ -2155,7 +2155,7 @@ a:focus {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Roboto", "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 100;
   line-height: 1.1;
   color: inherit;
 }
@@ -3123,7 +3123,7 @@ p {
   display: block;
   border: 2px solid #95a5a6;
   color: #34495e;
-  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   /* 16pxpx / 16pxpx */
   line-height: 24px;
@@ -3230,7 +3230,7 @@ input[type="checkbox"]:disabled, input[type="checkbox"]:disabled + label:before,
   border: 2px solid #1abc9c;
   background: #1abc9c;
   color: white;
-  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16;
   /* 16px / 16pxpx */
   line-height: 24;
@@ -3839,6 +3839,7 @@ select.replaced {
   display: inline-block;
   margin-top: 0px;
   margin-bottom: 96px;
+  font-weight: 900;
 }
 .boxed.rounded > * {
   border-radius: 0.25em;
@@ -3928,12 +3929,177 @@ select.replaced {
   }
 }
 
+.content-1 {
+  text-align: center;
+}
+.content-1 .container {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.content-2 {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.content-2 article {
+  overflow: hidden;
+  *zoom: 1;
+  display: table;
+  float: none;
+}
+.content-2 article .image {
+  display: table-cell;
+  float: left;
+  direction: ltr;
+  padding: 0 15px;
+  width: 33.33333%;
+  *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  vertical-align: middle;
+  float: none;
+}
+@media screen and (max-width: 480px) {
+  .content-2 article .image {
+    float: left;
+    direction: ltr;
+    padding: 0 15px;
+    width: 100%;
+    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  }
+}
+.content-2 article .image img {
+  width: 100%;
+  vertical-align: inherit;
+}
+.content-2 article .text {
+  float: left;
+  direction: ltr;
+  padding: 0 15px;
+  width: 50%;
+  *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  display: table-cell;
+  vertical-align: middle;
+  float: none;
+}
+.content-2 article .text > * {
+  margin-left: 8.33333%;
+}
+@media screen and (max-width: 480px) {
+  .content-2 article .text {
+    float: left;
+    direction: ltr;
+    padding: 0 15px;
+    width: 100%;
+    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  }
+  .content-2 article .text > * {
+    margin-left: 0%;
+    text-align: center;
+  }
+}
+.content-2.right .text > * {
+  margin-left: 0%;
+  margin-right: 8.33333%;
+}
+@media screen and (max-width: 480px) {
+  .content-2.right .text > * {
+    margin-right: 0%;
+  }
+}
+.content-2.no-space {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.content-3 {
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.content-3 article {
+  overflow: hidden;
+  *zoom: 1;
+  display: table;
+  float: none;
+}
+.content-3 article .image {
+  display: table-cell;
+  float: left;
+  direction: ltr;
+  padding: 0 15px;
+  width: 33.33333%;
+  *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  vertical-align: middle;
+  float: none;
+}
+@media screen and (max-width: 480px) {
+  .content-3 article .image {
+    float: left;
+    direction: ltr;
+    padding: 0 15px;
+    width: 100%;
+    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  }
+}
+.content-3 article .image img {
+  width: 100%;
+  vertical-align: inherit;
+}
+.content-3 article .text {
+  float: left;
+  direction: ltr;
+  padding: 0 15px;
+  width: 50%;
+  *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  display: table-cell;
+  vertical-align: middle;
+  float: none;
+}
+.content-3 article .text > * {
+  margin-left: 8.33333%;
+}
+@media screen and (max-width: 480px) {
+  .content-3 article .text {
+    float: left;
+    direction: ltr;
+    padding: 0 15px;
+    width: 100%;
+    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  }
+  .content-3 article .text > * {
+    margin-left: 0%;
+    text-align: center;
+  }
+}
+.content-3.right .text > * {
+  margin-left: 0%;
+  margin-right: 8.33333%;
+}
+.content-3.no-space {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.backgrounded > * {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+}
+
+header, section, article, .background {
+  position: relative;
+}
+
 .container {
   margin-left: auto;
   margin-right: auto;
   max-width: 1170px;
   z-index: 5;
   position: relative;
+}
+.container.full {
+  max-width: 100%;
 }
 
 .row {
@@ -3959,8 +4125,18 @@ select.replaced {
   }
 }
 
+.appear {
+  -webkit-transition: opacity .5s ease-out;
+  transition: opacity .5s ease-out;
+  opacity: 0;
+}
+
+.onScreen {
+  opacity: 1;
+}
+
 .label {
-  font-family: "Arimo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: auto;
   bottom: 0;
   left: 0;
