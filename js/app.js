@@ -14,4 +14,11 @@ $(document).ready(function(){
 
 	// set up background videos
 	setupVideos();
+
+	// set up .backgrounded
+	// $('.backgrounded > *').each(function () {
+	// 	var innerStuff = $(this).html();
+	// 	$(this).html($('<span class="backgrounded">'+innerStuff+'</span>'));
+	// 	$(this).parent().removeClass('backgrounded');
+	// })
 });

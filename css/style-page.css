@@ -3956,6 +3956,7 @@ select.replaced {
   *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
   vertical-align: middle;
   float: none;
+  text-align: center;
 }
 @media screen and (max-width: 480px) {
   .content-2 article .image {
@@ -3979,6 +3980,7 @@ select.replaced {
   display: table-cell;
   vertical-align: middle;
   float: none;
+  text-align: left;
 }
 .content-2 article .text > * {
   margin-left: 8.33333%;
@@ -4079,6 +4081,105 @@ select.replaced {
 .content-3.no-space {
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+.slider {
+  position: relative;
+}
+.slider.image {
+  -ms-touch-action: none;
+  overflow: auto;
+  position: relative;
+  touch-action: none;
+  height: 700px;
+}
+.slider.image li {
+  position: relative;
+  height: 700px;
+}
+.slider.text {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.slider.text .as-slide-inner > * {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.slider:hover .as-prev-arrow, .slider:hover .as-next-arrow {
+  filter: alpha(opacity=1);
+  opacity: 1;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button).active {
+  background-color: #e67e22;
+}
+
+.as-prev-arrow, .as-next-arrow {
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  filter: alpha(opacity=0);
+  height: 50px !important;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  white-space: nowrap;
+  width: 50px !important;
+  z-index: 1;
+  font-size: 40px !important;
+  line-height: 50px !important;
+  text-shadow: 0 0 7px rgba(255, 255, 255, 0.8);
+  transition: opacity .3s ease-in-out;
+  -moz-transition: opacity .3s ease-in-out;
+  -webkit-transition: opacity .3s ease-in-out;
+}
+
+.slider article {
+  text-align: center;
+}
+
+.as-prev-arrow {
+  left: 0;
+}
+
+.as-next-arrow {
+  right: 0px;
+}
+
+/* The same rules for styling apply here. Style to your liking */
+.as-nav {
+  bottom: 0;
+  left: 50%;
+  margin-left: -27px;
+  position: absolute;
+  text-align: left;
+  width: 54px;
+  z-index: 1;
+}
+
+.as-nav a {
+  display: inline-block;
+  margin: 0 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 26px;
+  text-shadow: 0 0 7px rgba(255, 255, 255, 0.8);
+}
+
+a.as-active, .as-nav a:hover {
+  color: #e67e22;
+}
+
+.as-slide-inner {
+  display: table;
+}
+.as-slide-inner article {
+  display: table-cell;
+  float: none !important;
+  vertical-align: middle;
 }
 
 .backgrounded > * {
