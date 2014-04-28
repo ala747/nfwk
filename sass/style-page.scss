@@ -575,6 +575,7 @@ overflow: hidden;
 		ul, li {
 			height:700px;
 			position:relative;
+			margin-bottom: 0;
 			@include gridle_state('tablet') {
 				height: 500px;
 			}

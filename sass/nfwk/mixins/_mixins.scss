@@ -92,10 +92,10 @@
 
 @mixin text-color($bg_color) {
   @if is-dark($bg_color){
-    color: lighten(white, lightness($bg_color) / 5); //$text-color-light
+    color: $white; //$text-color-light
   }
   @else {
-    color: black; //$text-color-dark
+    color: $black; //$text-color-dark
   }
 }
 
