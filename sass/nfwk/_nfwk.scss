@@ -20,7 +20,7 @@
 body {
   font-family: $font-family-base;
   @include baseline-font-size($font-size-base);
-  color: $text-color;
+  @include text-color($body-bg);
   background-color: $body-bg;
 }
 

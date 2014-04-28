@@ -104,37 +104,37 @@ small,
 }
 
 // Contextual backgrounds
-.bg-primary {
-  // Given the contrast here, this is the only class to have its color inverted
-  // automatically.
-  color: $white;
-  @include bg-variant($gray3);
-  border-color: darken(adjust-hue($gray3, -10), 5%);
-}
-.bg-secondary {
-  @include bg-variant($state-secondary-bg);
-  border-color: $state-secondary-border;
-}
-.bg-mental {
-  @include bg-variant($state-mental-bg);
-  border-color: $state-mental-border;
-}
-.bg-success {
-  @include bg-variant($state-success-bg);
-  border-color: $state-success-border;
-}
-.bg-info {
-  @include bg-variant($state-info-bg);
-  border-color: $state-info-border;
-}
-.bg-warning {
-  @include bg-variant($state-warning-bg);
-  border-color: $state-warning-border;
-}
-.bg-error {
-  @include bg-variant($state-danger-bg);
-  border-color: $state-danger-border;
-}
+// .bg-primary {
+//   // Given the contrast here, this is the only class to have its color inverted
+//   // automatically.
+//   color: $white;
+//   @include bg-variant($state-primary-bg);
+//   border-color: darken(adjust-hue($gray3, -10), 5%);
+// }
+// .bg-secondary {
+//   @include bg-variant($state-secondary-bg);
+//   border-color: $state-secondary-border;
+// }
+// .bg-mental {
+//   @include bg-variant($state-mental-bg);
+//   border-color: $state-mental-border;
+// }
+// .bg-success {
+//   //@include bg-variant($state-success-bg);
+//   border-color: $state-success-border;
+// }
+// .bg-info {
+//   //@include bg-variant($state-info-bg);
+//   border-color: $state-info-border;
+// }
+// .bg-warning {
+//   //@include bg-variant($state-warning-bg);
+//   border-color: $state-warning-border;
+// }
+// .bg-error {
+//   //@include bg-variant($state-danger-bg);
+//   border-color: $state-danger-border;
+// }
 
 
 // Lists

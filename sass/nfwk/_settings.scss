@@ -19,6 +19,7 @@ $gridle-html-states-classes : false; // not really for production, used for demo
 
 // Colors
 // -------------------------
+<<<<<<< HEAD
 $white : #fff;
 $black : #000;
 $primary : #1ABC9C;
@@ -44,10 +45,64 @@ $mental : #9B59B6;
 // $gray2 : #9EA6B6;
 // $gray3 : #414859;
 // $mental : adjust-hue(#9B59B6, 10);
+=======
+>>>>>>> test-merge-from
 
+// Autoschemer
+// --------------------------
+	$scheme-type : 'square'; // square|rectangle|triad|split-complementary|analogous|complementary
+
+	// Colors by autoschemer
+	$primary : #1ABC9C;
+	$secondary : secondary();
+	$tertiary : tertiary();
+	$quadrary : quadrary();
+
+// Colors by hand
+	// $primary : #EE4D2E;
+	// $secondary : #67B4D1;
+	// $tertiary : #EE4D2E;
+	// $quadrary : #EE4D2E;
+
+// Messages colors
+$error : #D8000C;
+$warning : #dFa000;
+$info : #0098DB;
+$success : #5F9A20;
+$mental : $tertiary;
+
+$gray : set-lightness(set-saturation($primary, 10%), 50%);
+
+$white : mix($primary, white, 4%);
+$black : mix($primary, black, 4%);
+
+$types : ('bg' 'background-color') ('fg' 'color');
+$colors : ('primary' $primary) ('secondary' $secondary) ('tertiary' $tertiary) ('quadrary' $quadrary) ('info' $info) ('success' $success) ('warning' $warning) ('error' $error) ('gray' $gray);
+$shades-light : ('light' 25%) ('lighter' 35%) ('lightest' 45%);
+$shades-dark : ('dark' 15%) ('darker' 20%) ('darkest' 35%);
+
+// Gray vars
+$gray-light : lighten($gray, 25%);
+$gray-lighter : lighten($gray, 35%);
+$gray-lightest : lighten($gray, 45%);
+
+$gray-dark : darken($gray, 15%);
+$gray-darker : darken($gray, 20%);
+$gray-darkest : darken($gray, 35%);
+
+$gray1 : $gray-lightest;
+$gray2 : $gray;
+$gray3 : $gray-darkest;
+
+@include write-colors();
+
+// Colors for enjoy @ page
 $body-bg : $white;
 $body-fg : $gray3;
 $text-color : $gray3;
+$text-color-inverted : $white;
+$text-color-dark : $gray3;
+$text-color-light : $white;
 $link-color : $primary;
 $link-hover-color : darken($primary, 5%);
 $title-fg : $secondary;
@@ -111,30 +166,31 @@ $page-header-border-color:    mix($gray3, $white, 25%);
 //** Hr border color
 $hr-border:                   mix($gray3, $white, 63%);
 
-$state-primary-border: darken(adjust-hue($primary, -10), 5%);
+$state-primary-bg:            mix($black, $body-bg, 80%); //#dff0d8;
+$state-primary-border: 		darken(adjust-hue($state-primary-bg, -10), 5%);
 
 $state-secondary-text:          $secondary;
-$state-secondary-bg:            mix($secondary, white, 15%); //#dff0d8;
+$state-secondary-bg:            mix($secondary, $body-bg, 15%); //#dff0d8;
 $state-secondary-border:        darken(adjust-hue($state-secondary-bg, -10), 5%);
 
 $state-mental-text:          $mental;
-$state-mental-bg:            mix($mental, white, 15%); //#dff0d8;
+$state-mental-bg:            mix($mental, $body-bg, 15%); //#dff0d8;
 $state-mental-border:        darken(adjust-hue($state-mental-bg, -10), 5%);
 
 $state-success-text:          $success;
-$state-success-bg:            mix($success, white, 15%); //#dff0d8;
+$state-success-bg:            mix($success, $body-bg, 15%); //#dff0d8;
 $state-success-border:        darken(adjust-hue($state-success-bg, -10), 5%);
 
 $state-info-text:             $info;
-$state-info-bg:               mix($info, white, 15%); //#d9edf7;
+$state-info-bg:               mix($info, $body-bg, 15%); //#d9edf7;
 $state-info-border:           darken(adjust-hue($state-info-bg, -10), 7%);
 
 $state-warning-text:          $warning;
-$state-warning-bg:            mix($warning, white, 15%); //#fcf8e3;
+$state-warning-bg:            mix($warning, $body-bg, 15%); //#fcf8e3;
 $state-warning-border:        darken(adjust-hue($state-warning-bg, -10), 5%);
 
 $state-danger-text:           $error;
-$state-danger-bg:             mix($error, white, 15%); //#f2dede;
+$state-danger-bg:             mix($error, $body-bg, 15%); //#f2dede;
 $state-danger-border:         darken(adjust-hue($state-danger-bg, -10), 5%);
 
 //== Components
@@ -190,10 +246,10 @@ $btn-success-active-bg:      mix($success, black, 85%);
 $btn-danger-hover-bg:        mix($error, white, 80%);
 $btn-danger-active-bg:       mix($error, black, 85%);
 
-$btn-warning-hover-bg:       overlay($warning, darken(white, 37.5%));
+$btn-warning-hover-bg:       mix($warning, white, 80%); //overlay($warning, darken(white, 37.5%));
 $btn-warning-active-bg:      mix($warning, black, 85%);
 
-$btn-inverse-hover-bg:       overlay($gray3, darken(white, 37.5%));
+$btn-inverse-hover-bg:       mix($gray3, white, 80%); //overlay($gray3, darken(white, 37.5%));
 $btn-inverse-active-bg:      mix($gray3, black, 85%);
 
 $btn-link-disabled-color:    $gray1;

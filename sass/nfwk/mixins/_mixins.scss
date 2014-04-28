@@ -30,9 +30,114 @@
 }
 
 
+@function secondary() {
+  $color : $primary;
+  @if $scheme-type == 'square' or $scheme-type == 'rectangle' or $scheme-type == 'complementary' {
+    @return adjust-hue($color, 180deg);
+  }
+  @if $scheme-type == 'triad' {
+    @return adjust-hue($color, -120deg);
+  }
+  @if $scheme-type == 'analogous' {
+    @return adjust-hue($color, 30deg);
+  }
+  @if $scheme-type == 'split-complementary' {
+    @return adjust-hue($color, 150deg);
+  }
+  @else {
+    @return $color;
+  }
+}
+@function tertiary() {
+  $color : $primary;
+  @if $scheme-type == 'square' {
+    @return adjust-hue($color, 90deg);
+  }
+  @if $scheme-type == 'rectangle' {
+    @return adjust-hue($color, 50deg);
+  }
+  @if $scheme-type == 'triad' {
+    @return adjust-hue($color, 120deg);
+  }
+  @if $scheme-type == 'analogous' {
+    @return adjust-hue($color, -30deg);
+  }
+  @if $scheme-type == 'split-complementary' {
+    @return adjust-hue($color, -150deg);
+  }
+  @else {
+    @return $color;
+  }
+}
+@function quadrary() {
+  $color : $primary;
+  @if $scheme-type == 'square' {
+    @return adjust-hue($color, -90deg);
+  }
+  @if $scheme-type == 'rectangle' {
+    @return adjust-hue($color, 140deg);
+  }
+  @else {
+    @return $color;
+  }
+}
 
+@function is-dark($color) {
+  @if (lightness($color) < 60% and (hue($color) >= 210 or hue($color) <= 27)) or (lightness($color) <= 50%)  {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
 
+@mixin text-color($bg_color) {
+  @if is-dark($bg_color){
+    color: lighten(white, lightness($bg_color) / 5); //$text-color-light
+  }
+  @else {
+    color: black; //$text-color-dark
+  }
+}
 
+@function set-saturation($color, $saturation) {
+  @return hsla(hue($color), $saturation, lightness($color), alpha($color));
+}
+
+@function set-lightness($color, $lightness) {
+  @return hsla(hue($color), saturation($color), $lightness, alpha($color));
+}
+
+@mixin write-colors(){
+  @each $x in $types {
+    @each $y in $colors {
+        .#{nth($x,1)}-#{nth($y,1)} { 
+            #{nth($x,2)}: #{nth($y,2)} !important;
+            @if nth($x,2) == 'background-color'  {
+              @include text-color(nth($y,2));
+              border-color: darken(nth($y,2), 10%);
+          }
+        }
+        @each $n in $shades-light {
+        .#{nth($x,1)}-#{nth($y,1)}-#{nth($n,1)} { 
+              #{nth($x,2)}: lighten(nth($y,2), nth($n,2)) !important;
+              @if nth($x,2) == 'background-color'  {
+                @include text-color(lighten(nth($y,2), nth($n,2)));
+                border-color: darken(lighten(nth($y,2), nth($n,2)), 10%);
+              }
+          }
+        }
+        @each $n in $shades-dark {
+        .#{nth($x,1)}-#{nth($y,1)}-#{nth($n,1)} { 
+              #{nth($x,2)}: darken(nth($y,2), nth($n,2)) !important;
+              @if nth($x,2) == 'background-color'  {
+                @include text-color(darken(nth($y,2), nth($n,2)));
+                border-color: lighten(darken(nth($y,2), nth($n,2)), 10%);
+              }
+          }
+        }
+    }
+  }
+}
 
 
 @mixin text-emphasis-variant($color) {
@@ -44,6 +149,7 @@
 
 @mixin bg-variant($color) {
 	background-color: $color !important;
+  @include text-color($color);
 	& a:hover {
 		background-color: darken($color, 10%) !important;
 	}
@@ -73,7 +179,7 @@
 // Easily pump out default styles, as well as :hover, :focus, :active,
 // and disabled options for all buttons
 @mixin button-variant($color, $background, $hover-background, $active-background, $disabled-background: $gray1) {
-  color: $color;
+  @include text-color($background);
   background-color: $background;
 
   &:hover,
@@ -81,7 +187,8 @@
   &:active,
   &.active,
   .open .dropdown-toggle {
-    color: $color;
+    //@include text-color($hover-background);
+    @include text-color($background);
     background-color: $hover-background;
     border-color: $hover-background;
   }
