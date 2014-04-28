@@ -382,7 +382,7 @@
 		border: 10px solid;
 		padding: .25em .5em;
 		display: inline-block;
-		@include baseline-margin($baseline, 0, 4);
+		//@include baseline-margin($baseline, 0, 4);
 		font-weight: 900
 	}
 	&.rounded > * {
@@ -573,7 +573,6 @@ overflow: hidden;
 		touch-action: none;
 		width: 100%;
 		ul, li {
-			//margin: 0;
 			height:700px;
 			position:relative;
 			@include gridle_state('tablet') {
@@ -710,7 +709,7 @@ overflow: hidden;
 		text-shadow: 0 0 7px rgba(255,255,255, .8);
 		text-indent: -1000em;
 		width: $baseline * 1;
-		height: $baseline * .5;
+		height: $baseline * .25;
 		background-color: rgba(0,0,0,0.8);
 		box-shadow: 1px 1px 0 rgba(255,255,255,0.3);
 		&:hover {
@@ -727,7 +726,6 @@ overflow: hidden;
 	left: 50%;
 	bottom: 5%;
 	margin-left: -25%;
-	//color: #fff;
 	color: $white;
 	text-align: center;
 	text-shadow: 0 0 7px rgba(0,0,0,.7);
