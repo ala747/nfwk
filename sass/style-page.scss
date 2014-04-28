@@ -568,20 +568,37 @@ overflow: hidden;
 	position: relative;
 	&.image {
 		-ms-touch-action: none;
-		overflow: auto;
+		overflow: hidden;
 		position: relative;
 		touch-action: none;
+		width: 100%;
+		ul, li {
+			//margin: 0;
 			height:700px;
-		li {
 			position:relative;
-			height: 700px;
+			@include gridle_state('tablet') {
+				height: 500px;
+			}
+			@include gridle_state('mobile') {
+				height: 300px;
+			}
+			> li {width: 100%}
 		}
+
 	}
 	&.text {
 		@include baseline_padding($baseline, 2, 2);
-		.as-slide-inner > * {
-			padding-left: 50px;
-			padding-right: 50px;
+		.as-slide-inner {
+			display: table;
+			article {
+				display: table-cell;
+				float:none !important;
+				vertical-align: middle;
+			}
+			> * {
+				padding-left: 50px;
+				padding-right: 50px;
+			}
 		}
 	}
 	.as-prev-arrow, .as-next-arrow {
@@ -676,12 +693,13 @@ overflow: hidden;
 	}
 }
 .as-nav {
-	bottom: 0;
+	bottom: $baseline;
 	left: 0;
-	position: absolute;
+	position: absolute !important;
 	text-align: left;
 	width: 100%;
-	z-index: 1;
+	height: auto !important;
+	z-index: 100;
 	text-align: center;
 	a {
 		display: inline-block;
@@ -703,15 +721,22 @@ overflow: hidden;
 		}
 	}
 }
-.as-slide-inner {
-	display: table;
-	article {
-		display: table-cell;
-		float:none !important;
-		vertical-align: middle;
+.as-caption {
+	width: 50%;
+	position: absolute;
+	left: 50%;
+	bottom: 5%;
+	margin-left: -25%;
+	//color: #fff;
+	color: $white;
+	text-align: center;
+	text-shadow: 0 0 7px rgba(0,0,0,.7);
+	> * {
+		background-color: rgba(0, 0, 0, 0.5);
+		padding: 15px;
+		width: auto
 	}
 }
-
 
 
 .backgrounded {

@@ -16,7 +16,7 @@ $(document).ready(function(){
 	setupVideos();
 
 	// setup sliders
-	$(".slider.image").AnySlider({
+	$(".slider.image .container").AnySlider({
 		animation: 'fade',
 		interval: 5000,
 		speed: 600,
