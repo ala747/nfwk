@@ -2394,7 +2394,7 @@ abbr[data-original-title] {
 }
 
 blockquote {
-  padding: 0 0 0 40px;
+  padding: 0 0 0 70px;
   margin: 0 0 24px;
   margin-top: 0px;
   margin-bottom: 12px;
@@ -2402,11 +2402,12 @@ blockquote {
 }
 blockquote:before {
   display: block;
-  content: "\201C";
-  font-size: 176px;
-  /* 176pxpx / 16pxpx */
-  line-height: 192px;
-  line-height: 1;
+  font-family: 'FontAwesome';
+  content: "\f10d";
+  font-size: 80px;
+  /* 80pxpx / 16pxpx */
+  line-height: 96px;
+  line-height: 1.5;
   position: absolute;
   left: -20px;
   top: -24px;
@@ -2439,15 +2440,16 @@ blockquote .small:before {
   content: "\2014 \2009";
 }
 blockquote.pull-right {
-  padding: 0 40px 0 0;
+  padding: 0 70px 0 0;
 }
 blockquote.pull-right:before {
   display: block;
-  content: "\201D";
-  font-size: 176px;
-  /* 176pxpx / 16pxpx */
-  line-height: 192px;
-  line-height: 1;
+  font-family: 'FontAwesome';
+  content: "\f10e";
+  font-size: 80px;
+  /* 80pxpx / 16pxpx */
+  line-height: 96px;
+  line-height: 1.5;
   position: absolute;
   left: auto;
   right: -20px;
@@ -4105,17 +4107,7 @@ select.replaced {
   padding-left: 50px;
   padding-right: 50px;
 }
-
-.slider:hover .as-prev-arrow, .slider:hover .as-next-arrow {
-  filter: alpha(opacity=1);
-  opacity: 1;
-}
-
-.top-bar-section li:not(.has-form) a:not(.button).active {
-  background-color: #e67e22;
-}
-
-.as-prev-arrow, .as-next-arrow {
+.slider .as-prev-arrow, .slider .as-next-arrow {
   text-align: center;
   display: inline-block;
   cursor: pointer;
@@ -4131,35 +4123,86 @@ select.replaced {
   z-index: 1;
   font-size: 40px !important;
   line-height: 50px !important;
-  text-shadow: 0 0 7px rgba(255, 255, 255, 0.8);
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
 }
-
+.slider .as-prev-arrow:hover, .slider .as-next-arrow:hover {
+  color: #1abc9c;
+}
+.slider .as-prev-arrow {
+  left: -50px;
+}
+.slider .as-next-arrow {
+  right: -50px;
+}
+@media screen and (max-width: 480px), screen and (min-width: 481px) and (max-width: 1024px) {
+  .slider .as-prev-arrow {
+    left: 0;
+    filter: alpha(opacity=0.5);
+    opacity: .5;
+  }
+  .slider .as-next-arrow {
+    right: 0;
+    filter: alpha(opacity=0.5);
+    opacity: .5;
+  }
+}
+.slider:hover .as-prev-arrow {
+  filter: alpha(opacity=1);
+  opacity: 1;
+  left: 0;
+}
+.slider:hover .as-next-arrow {
+  filter: alpha(opacity=1);
+  opacity: 1;
+  right: 0;
+}
+.slider.bg-primary .as-prev-arrow, .slider.bg-primary .as-next-arrow {
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  background-color: transparent !important;
+}
+.slider.bg-primary .as-prev-arrow:hover, .slider.bg-primary .as-next-arrow:hover {
+  color: #1abc9c;
+}
+.slider.bg-primary .as-nav a {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+.slider.bg-primary .as-nav a:hover {
+  color: #1abc9c;
+}
+.slider blockquote {
+  text-align: left;
+  padding-left: 90px;
+}
+.slider blockquote:before {
+  left: 0;
+}
+.slider blockquote.pull-right {
+  padding-left: 0;
+  padding-right: 90px;
+}
+.slider blockquote.pull-right:before {
+  left: auto;
+  right: 0;
+}
 .slider article {
   text-align: center;
 }
 
-.as-prev-arrow {
-  left: 0;
-}
-
-.as-next-arrow {
-  right: 0px;
-}
-
-/* The same rules for styling apply here. Style to your liking */
 .as-nav {
   bottom: 0;
-  left: 50%;
-  margin-left: -27px;
+  left: 0;
   position: absolute;
   text-align: left;
-  width: 54px;
+  width: 100%;
   z-index: 1;
+  text-align: center;
 }
-
 .as-nav a {
   display: inline-block;
   margin: 0 1px;
@@ -4167,10 +4210,17 @@ select.replaced {
   white-space: nowrap;
   font-size: 26px;
   text-shadow: 0 0 7px rgba(255, 255, 255, 0.8);
+  text-indent: -1000em;
+  width: 24px;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
 }
-
-a.as-active, .as-nav a:hover {
-  color: #e67e22;
+.as-nav a:hover {
+  background-color: #1abc9c !important;
+}
+.as-nav a.as-active, .as-nav a.as-active:hover {
+  background-color: #1abc9c !important;
 }
 
 .as-slide-inner {

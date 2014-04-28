@@ -584,83 +584,124 @@ overflow: hidden;
 			padding-right: 50px;
 		}
 	}
+	.as-prev-arrow, .as-next-arrow {
+		text-align: center;
+		display: inline-block;
+		cursor: pointer;
+		filter: alpha(opacity=0);
+		height: 50px !important;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		top: 50%;
+		margin-top: -25px;
+		white-space: nowrap;
+		width: 50px !important;
+		z-index: 1;
+		font-size:40px !important;
+		line-height: 50px !important;
+		color: rgba(0,0,0,0.8);
+		text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+		transition: all .3s ease-in-out;
+		-moz-transition: all .3s ease-in-out;
+		-webkit-transition: all .3s ease-in-out;
+		&:hover {
+			color: $primary
+		}
+	}
+	.as-prev-arrow {
+		left: -50px;
+	}
+	.as-next-arrow {
+		right: -50px;
+	}
+	@include gridle_state('mobile' 'tablet') {
+		.as-prev-arrow {
+			left:0;
+			filter: alpha(opacity=.5);
+			opacity: .5;
+		}
+		.as-next-arrow {
+			right:0;
+			filter: alpha(opacity=.5);
+			opacity: .5;
+		}
+	}
+	&:hover {
+		.as-prev-arrow {
+			filter: alpha(opacity=1);
+			opacity: 1;
+			left:0;
+		}
+		.as-next-arrow {
+			filter: alpha(opacity=1);
+			opacity: 1;
+			right:0;
+		}
+	}
+	&.bg-primary {
+		.as-prev-arrow, .as-next-arrow {
+			text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+			color: rgba(255,255,255,0.8);
+			background-color:transparent !important;
+			&:hover {
+				color: $primary
+			}
+		}
+		.as-nav a {
+			background-color: rgba(255,255,255,0.8);
+			box-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+			&:hover {
+				color: $primary
+			}
+		}
+	}
+	blockquote {
+		text-align: left;
+		padding-left: 90px;
+		&:before {
+			left: 0
+		}
+		&.pull-right {
+			padding-left: 0;
+			padding-right: 90px;
+			&:before {
+				left: auto;
+				right: 0
+			}
+		}
+	}
+	article {
+		text-align: center
+	}
 }
-.slider:hover .as-prev-arrow, .slider:hover .as-next-arrow {
-filter: alpha(opacity=1);
-opacity: 1;
-}
-.top-bar-section li:not(.has-form) a:not(.button).active {
-	background-color: $secondary
-}
-.as-prev-arrow, .as-next-arrow {
-//font-family: "GeneralFoundicons";
-text-align: center;
-display: inline-block;
-//background: url(img/arrows.png) no-repeat;
-cursor: pointer;
-filter: alpha(opacity=0);
-height: 50px !important;
-opacity: 0;
-overflow: hidden;
-position: absolute;
-//text-indent: -9999em !important;
-top: 50%;
-margin-top: -25px;
-white-space: nowrap;
-width: 50px !important;
-z-index: 1;
-//border: 1px solid red;
-font-size:40px !important;
-line-height: 50px !important;
-text-shadow: 0 0 7px rgba(255,255,255, .8);
-transition: opacity .3s ease-in-out;
-   -moz-transition: opacity .3s ease-in-out;
-   -webkit-transition: opacity .3s ease-in-out;
-}
-.slider article {
-	text-align: center
-}
-.as-prev-arrow {
-left: 0;
-}
-.as-next-arrow {
-//background-position: -40px 0;
-right: 0px;
-}
-// .as-next-arrow:before {
-// 	position: absolute;
-// 	top: 0;
-// 	left:0;
-// 	text-indent: 0;
-// content: "\f014";
-// }
-
-/* The same rules for styling apply here. Style to your liking */
 .as-nav {
 	bottom: 0;
-	left: 50%;
-	margin-left: -27px;
+	left: 0;
 	position: absolute;
 	text-align: left;
-	width: 54px;
+	width: 100%;
 	z-index: 1;
-}
-
-.as-nav a {
-	//background: url(img/bullets.png) no-repeat;
-	//height: 16px;
-	display: inline-block;
-	margin: 0 1px;
-	overflow: hidden;
-	//text-indent: 100%;
-	white-space: nowrap;
-	font-size: 26px;
-	text-shadow: 0 0 7px rgba(255,255,255, .8)
-	//width: 16px;
-}
-
-a.as-active, .as-nav a:hover {
-	color:$secondary
+	text-align: center;
+	a {
+		display: inline-block;
+		margin: 0 1px;
+		overflow: hidden;
+		white-space: nowrap;
+		font-size: 26px;
+		text-shadow: 0 0 7px rgba(255,255,255, .8);
+		text-indent: -1000em;
+		width: $baseline * 1;
+		height: $baseline * .5;
+		background-color: rgba(0,0,0,0.8);
+		box-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+		&:hover {
+			background-color:$primary !important
+		}
+		&.as-active, &.as-active:hover {
+			background-color:$primary !important
+		}
+	}
 }
 .as-slide-inner {
 	display: table;
@@ -674,12 +715,12 @@ a.as-active, .as-nav a:hover {
 
 
 .backgrounded {
-				> * {
-					color: $white;
-					background-color: rgba(0,0,0,.5);
-					padding: 15px
-				}
-			}
+	> * {
+		color: $white;
+		background-color: rgba(0,0,0,.5);
+		padding: 15px
+	}
+}
 
 // Normal Grid container
 header, section, article, .background {

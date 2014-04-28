@@ -164,15 +164,16 @@ abbr[data-original-title] {
 
 // Blockquotes
 blockquote {
-  padding: 0 0 0 40px;
+  padding: 0 0 0 70px;
   margin: 0 0 $baseline;
   @include baseline-margin($baseline, 0, .5);
   position: relative;
   &:before {
     display: block;
-    content: "\201C";
-    @include baseline-font-size($font-size-base * 11);
-    line-height: 1;
+    font-family: 'FontAwesome';
+    content: "\f10d";
+    @include baseline-font-size($font-size-base * 5);
+    line-height: 1.5;
     position: absolute;
     left: -20px;
     top: -($font-size-base * $line-height-base);
@@ -200,12 +201,13 @@ blockquote {
   
   // Float right with text-align: right
   &.pull-right {
-    padding: 0 40px 0 0;
+    padding: 0 70px 0 0;
     &:before {
       display: block;
-      content: "\201D";
-      @include baseline-font-size($font-size-base * 11);
-      line-height: 1;
+      font-family: 'FontAwesome';
+      content: "\f10e";
+      @include baseline-font-size($font-size-base * 5);
+      line-height: 1.5;
       position: absolute;
       left: auto;
       right: -20px;
